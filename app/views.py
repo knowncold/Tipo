@@ -33,14 +33,18 @@ def list_blog():
 
 @app.route('/blog/latest', methods=['POST'])
 def latest_blog():
-    return ''
+    latest = Blog.objects().order_by('-createTime')[:5]
+    latest_list = []
+    for i in latest:
+        latest_list.append({"title":i.title, "createDay": str(i.createDay)[:10]})
+    return str(ErrorMessage(True, latest_list))
 
 @app.route('/blog/get', methods=['POST'])
 def get_blog():
     get_json = request.get_json()
     title = get_json['title']
     createDay = datetime.datetime.strptime(get_json['createDay'], '%Y-%m-%d')
-    blog = Blog.objects.get_or_404(title=title, createDay=createDay)
+    blog = Blog.objects.get_or_404(title=title, createDay=createDay)    # TODO change method
     blog.pageview += 1
     for post in Blog.objects(tag='yu'):
         print post.title

@@ -70,8 +70,38 @@ $ python run.py
 
 #### Request Data
 
+```json
+```
+
 #### Response Data
 
+```json
+{
+    "status": true,
+    "msg": [
+        {
+            "createDay": "2017-11-19",
+            "title": "测试标题"
+        },
+        {
+            "createDay": "2017-11-19",
+            "title": "测试标题"
+        },
+        {
+            "createDay": "2017-11-19",
+            "title": "测试标题"
+        },
+        {
+            "createDay": "2017-11-19",
+            "title": "测试标题"
+        },
+        {
+            "createDay": "2017-11-19",
+            "title": "测试标题"
+        }
+    ]
+}
+```
 
 ### 博客详情
 获得单个博客地内容，通过创建日期和标题来唯一标识。
