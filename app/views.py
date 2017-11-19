@@ -38,6 +38,10 @@ def get_blog():
     title = get_json['title']
     createDay = datetime.datetime.strptime(get_json['createDay'], '%Y-%m-%d')
     blog = Blog.objects.get_or_404(title=title, createDay=createDay)
+    blog.pageview += 1
+    for post in Blog.objects(tag='yu'):
+        print post.title
+    blog.save()
     return str(ErrorMessage(True, blog.to_json()))
 
 # @app.route('/comment/new', methods=['POST'])

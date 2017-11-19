@@ -24,12 +24,14 @@
 }
 ```
 
+其中`category`非必需。
+
 ### Response Data
 
 ```json
 {
-	"status" : True,
-	"msg" : ''
+	"status" : true,
+	"msg" : ""
 }
 ```
 
@@ -54,14 +56,38 @@
 
 
 ### 博客详情
-获得单个博客地内容
+获得单个博客地内容，通过创建日期和标题来唯一标识。
 
 > /blog/get
 
 ### Request Data
 
+```json
+{
+	"title":"test title",
+	"createDay":"2017-11-19"
+}
+```
+
 ### Response Data
 
+```json
+{
+    "status": true,
+    "msg": {
+        "category": "uncategoried",
+        "pageview": 5,
+        "title": "test yu",
+        "tag": [
+            "test",
+            "yu"
+        ],
+        "content": "qwe",
+        "createDay": "2017-11-19 00:00:00",
+        "createTime": "2017-11-19 10:40:36.596000"
+    }
+}
+```
 
 ### 归档计数
 按月份或者分类来获得归档的数量
