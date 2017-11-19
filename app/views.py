@@ -28,8 +28,11 @@ def new_blog():
 def list_blog():
     get_json = request.get_json()
     page = get_json['page']
-
-    return ''
+    blog = Blog.objects().order_by("-createTime")
+    paged = blog.paginate(page=page, per_page=5)
+    x = lambda a: a.to_json()
+    b = map(x, paged.items)
+    return str(ErrorMessage(True, b))
 
 @app.route('/blog/latest', methods=['POST'])
 def latest_blog():
