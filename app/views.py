@@ -80,8 +80,7 @@ def all_archive():
 
 @app.route('/tag/get', methods=['POST'])
 def get_tag():
-    
-    return ''
+    return str(ErrorMessage(True, Blog.objects().distinct(field="tag")))
 
 @app.errorhandler(404)
 def page_not_found(e):

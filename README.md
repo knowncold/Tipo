@@ -14,7 +14,7 @@
 
 > /blog/new
 
-### Request Data
+#### Request Data
 
 ```json
 {
@@ -28,7 +28,7 @@
 
 其中`category`非必需。
 
-### Response Data
+#### Response Data
 
 ```json
 {
@@ -42,9 +42,9 @@
 
 > /blog/list
 
-### Request Data
+#### Request Data
 
-### Response Data
+#### Response Data
 
 
 ### 最新博客
@@ -52,9 +52,9 @@
 
 > /blog/latest
 
-### Request Data
+#### Request Data
 
-### Response Data
+#### Response Data
 
 
 ### 博客详情
@@ -62,7 +62,7 @@
 
 > /blog/get
 
-### Request Data
+#### Request Data
 
 ```json
 {
@@ -71,7 +71,7 @@
 }
 ```
 
-### Response Data
+#### Response Data
 
 ```json
 {
@@ -96,7 +96,7 @@
 
 > /archive/count
 
-### Request Data
+#### Request Data
 
 ```json
 {
@@ -104,7 +104,7 @@
 }
 ```
 
-### Response Data
+#### Response Data
 
 ```json
 {
@@ -131,9 +131,9 @@
 
 > /archive/all
 
-### Request Data
+#### Request Data
 
-### Response Data
+#### Response Data
 
 
 ### 获取标签
@@ -141,8 +141,24 @@
 
 > /tag/get
 
-### Request Data
+#### Request Data
 
-### Response Data
+```json
+```
+
+#### Response Data
+
+```json
+{
+    "status": true,
+    "msg": [
+        "test",
+        "yu",
+        "fuck",
+        "fucked",
+        "ctf"
+    ]
+}
+```
 
 
