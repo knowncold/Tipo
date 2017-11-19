@@ -71,7 +71,21 @@ def count_archive():
 
 @app.route('/archive/all', methods=['POST'])
 def all_archive():
-    return ''
+    get_json = request.get_json()
+    archive_type = get_json["type"]
+    key = get_json["key"]
+    page = get_json["page"]
+    if archive_type == "tag":
+        blog = Blog.objects(tag=key)
+    elif archive_type == "month":
+        blog = Blog.objects(month=key)
+    elif archive_type == "category":
+        blog = Blog.objects(category=key)
+
+    paged = blog.paginate(page=page, per_page=5)
+    x = lambda a: a.to_json()
+    b = map(x, paged.items)
+    return str(ErrorMessage(True, b))
 
 @app.route('/tag/get', methods=['POST'])
 def get_tag():

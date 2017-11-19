@@ -250,8 +250,34 @@ $ python run.py
 
 #### Request Data
 
+```json
+{
+	"type":"tag",
+	"key":"ctf",
+	"page":1
+}
+```
+
 #### Response Data
 
+```json
+{
+    "status": true,
+    "msg": [
+        {
+            "category": "uncategoried",
+            "pageview": 0,
+            "title": "测试标题",
+            "tag": [
+                "ctf"
+            ],
+            "content": "qwe",
+            "createDay": "2017-11-19 00:00:00",
+            "createTime": "2017-11-19 20:15:11.736000"
+        }
+    ]
+}
+```
 
 ### 获取标签
 获取网站的标签列表
