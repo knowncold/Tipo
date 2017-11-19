@@ -1,8 +1,10 @@
 # BackEnd of Tipo
 
+## 部署
+
 ## 服务器信息
 
- - 地址:`http://127.0.0.1`
+ - 地址:`http://127.0.0.1:5000`
  - 请求方式全部为POST
 
 ## 接口列表
@@ -96,8 +98,33 @@
 
 ### Request Data
 
+```json
+{
+	"type" : "category | month"
+}
+```
+
 ### Response Data
 
+```json
+{
+    "status": true,
+    "msg": {
+        "2017-09": 2,
+        "2017-11": 1,
+        "2017-10": 2
+    }
+}
+```
+
+```json
+{
+    "status": true,
+    "msg": {
+        "uncategoried": 6
+    }
+}
+```
 
 ### 归档
 通过月份、分类、标签来获得归档的列表

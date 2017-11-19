@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, request
 from models import Blog, Comment, ErrorMessage
-import datetime
+import datetime, json
 
 @app.route('/')
 def index():
@@ -26,6 +26,9 @@ def new_blog():
 
 @app.route('/blog/list', methods=['POST'])
 def list_blog():
+    get_json = request.get_json()
+    page = get_json['page']
+
     return ''
 
 @app.route('/blog/latest', methods=['POST'])
@@ -58,7 +61,18 @@ def get_blog():
 
 @app.route('/archive/count', methods=['POST'])      # month category
 def count_archive():
-    return ''
+    get_json = request.get_json()
+    archive_type = get_json['type']
+    num_count = {}
+    if archive_type == 'category':
+        for catgr in Blog.objects().distinct(field="category"):
+            num = Blog.objects(category=catgr).count()
+            num_count[catgr] = num
+    elif archive_type == 'month':
+        for mon in Blog.objects().distinct(field="month"):
+            num = Blog.objects(month=mon).count()
+            num_count[mon] = num
+    return str(ErrorMessage(True, num_count))
 
 @app.route('/archive/all', methods=['POST'])
 def all_archive():
@@ -66,6 +80,7 @@ def all_archive():
 
 @app.route('/tag/get', methods=['POST'])
 def get_tag():
+    
     return ''
 
 @app.errorhandler(404)

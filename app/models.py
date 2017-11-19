@@ -10,6 +10,7 @@ class Blog(db.Document):
     category = db.StringField(default='uncategoried')
     tag = db.ListField(db.StringField())
     pageview = db.IntField(default=0)
+    month = db.StringField(default=datetime.datetime.strftime(datetime.date.today(), '%Y-%m'))
 
     def to_json(self):
         return {
