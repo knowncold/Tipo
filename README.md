@@ -2,6 +2,22 @@
 
 ## 部署
 
+### Requirments
+
+ - virtualenv
+ - python2.7
+ - flask
+ - flask-mongoengine
+
+### Run
+
+```bash
+$ virtualenv venv
+$ source venv/bin/activate
+$ pip install -r requirenments.txt
+$ python run.py
+```
+
 ## 服务器信息
 
  - 地址:`http://127.0.0.1:5000`
@@ -18,11 +34,11 @@
 
 ```json
 {
-	"title" : "Test Title",
-	"content" : "Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.",
-	"tag" : ["ctf", "web", "python"],
-	"category" : "life",
-	"creatDay" : "2017-11-11"
+    "title" : "Test Title",
+    "content" : "Lorem ipsizzle funky fresh i'm in the shizzle boom shackalack, consectetizzle adipiscing my shizz. Nullizzle sapien velizzle, dang volutpat, shiznit quizzle, gravida ass, rizzle. Pot get down get down tortor. Sed erizzle. Black go to hizzle dolizzle dapibizzle turpis fo shizzle my nizzle yo. Maurizzle pellentesque nibh et check it out. Bow wow wow check it out tortizzle. Pellentesque for sure rhoncizzle bow wow wow. In owned habitasse brizzle dictumst. Nizzle dapibizzle. Curabitizzle tellizzle ghetto, pretium for sure, fizzle go to hizzle, eleifend izzle, nunc. Dope suscipizzle. Integizzle boom shackalack velit ass purus.",
+    "tag" : ["ctf", "web", "python"],
+    "category" : "life",
+    "creatDay" : "2017-11-11"
 }
 ```
 
@@ -32,8 +48,8 @@
 
 ```json
 {
-	"status" : true,
-	"msg" : ""
+    "status" : true,
+    "msg" : ""
 }
 ```
 
@@ -66,8 +82,8 @@
 
 ```json
 {
-	"title":"test title",
-	"createDay":"2017-11-19"
+    "title":"test title",
+    "createDay":"2017-11-19"
 }
 ```
 
@@ -100,7 +116,7 @@
 
 ```json
 {
-	"type" : "category | month"
+    "type" : "category | month"
 }
 ```
 

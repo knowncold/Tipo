@@ -47,18 +47,6 @@ def get_blog():
     blog.save()
     return str(ErrorMessage(True, blog.to_json()))
 
-# @app.route('/comment/new', methods=['POST'])
-# def new_comment():
-    # return ''
-
-# @app.route('/comment/list', methods=['POST'])
-# def list_comment():
-    # return ''
-
-# @app.route('/comment/latest', methods=['POST'])
-# def latest_comment():
-    # return ''
-
 @app.route('/archive/count', methods=['POST'])      # month category
 def count_archive():
     get_json = request.get_json()
@@ -81,6 +69,18 @@ def all_archive():
 @app.route('/tag/get', methods=['POST'])
 def get_tag():
     return str(ErrorMessage(True, Blog.objects().distinct(field="tag")))
+
+# @app.route('/comment/new', methods=['POST'])
+# def new_comment():
+    # return ''
+
+# @app.route('/comment/list', methods=['POST'])
+# def list_comment():
+    # return ''
+
+# @app.route('/comment/latest', methods=['POST'])
+# def latest_comment():
+    # return ''
 
 @app.errorhandler(404)
 def page_not_found(e):
