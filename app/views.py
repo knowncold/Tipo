@@ -5,7 +5,7 @@ import datetime, json
 
 @app.route('/')
 def index():
-    return "HOME"
+    return render_template('index.html')
 
 @app.route('/blog/new', methods=['POST'])
 def new_blog():
