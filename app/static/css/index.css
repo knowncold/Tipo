@@ -127,15 +127,15 @@ img {
     float: right;
     width: 30%;
     margin-top: -50px;
-    background-color: #fff;
 }
 .recent {
     padding: 36px;
     box-shadow: 0 3px 5px #aaa;
     font-size: 26px;
     font-weight: bold;
+    background-color: #fff;
 }
-.recent p {
+.recent p, .comment p {
     padding: 0 10px;
     margin-top: 10px;
     line-height: 36px;
@@ -145,9 +145,25 @@ img {
     border-bottom: 1px solid #eee;
 }
 .comment {
+    background-color: #fff;
     margin-top: 50px;
     padding: 36px;
     box-shadow: 0 3px 5px #aaa;
     font-size: 26px;
     font-weight: bold;
+}
+.author {
+    border-bottom: 1px solid #000;
+    font-size: 20px;
+    font-weight: 100;
+}
+.com {
+    margin-left: 6px;
+    font-size: 20px;
+    font-weight: 100;
+    color: #444
+}
+.tosay {
+    font-size: 20px;
+    font-weight: 100;
 }
