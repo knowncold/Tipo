@@ -1,0 +1,18 @@
+#tagsList {
+    position: relative;
+    margin: 200px auto 0;
+}
+#tagsList a {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-family: Microsoft YaHei;
+    color: #009789;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 3px 6px;
+}
+#tagsList a:hover {
+    color: #FF0000;
+    letter-spacing: 2px;
+}
