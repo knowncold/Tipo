@@ -14,7 +14,12 @@ def index():
 def paged(page):
     blog = Blog.objects().order_by("-createTime")
     paged = blog.paginate(page=int(page), per_page=5)
-    return render_template('index.html', blog_list=paged.items)
+    latest = Blog.objects().order_by('-createTime')[:5]
+    latest_list = []
+    tags = Blog.objects().distinct(field="tag")
+    for i in latest:
+        latest_list.append({"title":i.title, "createDay": str(i.createDay)[:10]})
+    return render_template('index.html', blog_list=paged.items, latest_blog=latest_list, tag_cloud=tags)
 
 @app.route('/blog/new', methods=['POST'])
 def new_blog():
