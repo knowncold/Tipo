@@ -4,9 +4,9 @@
         <title>
             Tipo
         </title>
-        <link rel="stylesheet" href="/static/css/index.css">
-        <link rel="stylesheet" href="/static/css/tags.css">
-        <script type="text/javascript" src="/static/js/tags.js"></script>
+        <link rel="stylesheet" href="../static/css/index.css">
+        <link rel="stylesheet" href="../static/css/tags.css">
+        <script type="text/javascript" src="../static/js/tags.js"></script>
     </head>
     <body>
         <div class="navigation">
@@ -23,9 +23,13 @@
                     <br />
                     <div style="float: left;width: 100%">
                         <span class="subname">十年生死两茫茫，不思量自难忘</span>
-                        <img src="/static/assets/search.png" />
-                        <input type="text" placeholder="搜索" />
+                        <div style="">
+                            <img src="../static/assets/search.png" />
+                            <input type="text" placeholder="搜索" />
+                        </div>
+
                     </div>
+                    <div class="clear"></div>
                 </div>
             </div>
         </div>
@@ -37,6 +41,9 @@
                     <div style="white-space: nowrap;">
                         <h4>苟利国家生死以，岂因祸福避趋之</h4>
                         <p>江川蛤泽</p>
+                        <p>qwe</p>
+                        <p>web</p>
+                        <p>ctf</p>
                     </div>
                     <div class="article">
 						{{ blog.content }}
@@ -46,6 +53,7 @@
 						<span style="float: right;color: #ccc;">热度：{{ blog.pageview }}</span>
                     </div>
                 </div>
+
 				{% endfor %}
            </div>
 
@@ -134,11 +142,11 @@
                     <a href="#/Article.aspx?kid=21" title="网友蘑菇">网友蘑菇</a>
                 </div>
             </div>
+            <div class="clear">
 
+            </div>
         </div>
-        <div class="clear">
 
-        </div>
         <div class="foot">
             <p>Designe by emobaba, power by emobaba</p>
         </div>

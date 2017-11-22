@@ -35,10 +35,10 @@ body {
 }
 .nav_con {
     color: #fff;
-    float: left;
     width: 100%;
 }
 .name {
+    margin-top: 50px;
     float: left;
     font-size: 60px;
 }
@@ -71,24 +71,24 @@ input::-webkit-input-placeholder {
     font-weight: 200;
 }
 img {
-    margin-right: 30px;
-    height: 50px;
+    height: 70px;
     float: right;
 }
 .blog {
-    width: 100%;
+    width: auto;
     max-width: 1300px;
     margin: 0 auto;
     margin-top: -50px;
+    padding: 0 50px;
 }
 .blog_l {
-    float: left;
-    width: 70%;
+    font-family: "Source Code Pro";
+    width: 65%;
 }
 .blog_left {
     padding: 45px;
-    width: 90%;
     float: left;
+    width: 100%;
     box-shadow: 0 3px 5px #aaa;
     background-color: #fff;
     margin-bottom: 50px;
@@ -106,6 +106,7 @@ img {
     float: left;
 }
 .blog_left p {
+    height: 20px;
     font-size: 14px;
     float: left;
     margin-top: 24px;
@@ -129,9 +130,9 @@ img {
 }
 
 .blog_right {
-    float: left;
-    margin-left: 45px;
+    float: right;
     width: 25%;
+    min-width: 300px;
 }
 .recent {
     padding: 36px;
@@ -201,4 +202,25 @@ img {
     font-family: Arial;
     padding-top: 30px;
     font-size: 20px;
+}
+
+@media screen and (max-width: 1299px) {
+    .blog_l{
+        width: 100%;
+    }
+    .blog_left {
+        box-sizing: border-box;
+    }
+    .blog_right {
+        float: left;
+        width: 100%;
+        margin-left: 0;
+    }
+    .navigation {
+        text-align: center;
+    }
+    .nav_con {
+        width:90%;
+        margin: 0 auto;
+    }
 }
