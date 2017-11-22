@@ -81,11 +81,14 @@ img {
     margin: 0 auto;
     margin-top: -50px;
 }
+.blog_l {
+    float: left;
+    width: 70%;
+}
 .blog_left {
     padding: 45px;
     float: left;
     box-shadow: 0 3px 5px #aaa;
-    width: 60%;
     background-color: #fff;
 }
 .blog_left h1 {
@@ -124,8 +127,9 @@ img {
 }
 
 .blog_right {
-    float: right;
-    width: 30%;
+    float: left;
+    margin-left: 45px;
+    width: 25%;
 }
 .recent {
     padding: 36px;
