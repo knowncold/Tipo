@@ -4,8 +4,17 @@ from models import Blog, Comment, ErrorMessage
 import datetime, json
 
 @app.route('/')
+@app.route('/index')
 def index():
-    return render_template('index.html')
+    blog = Blog.objects().order_by("-createTime")
+    paged = blog.paginate(1, per_page=5)
+    return render_template('index.html', blog=paged.items)
+
+@app.route('/index/page/<page>')
+def paged(page):
+    blog = Blog.objects().order_by("-createTime")
+    paged = blog.paginate(page=int(page), per_page=5)
+    return render_template('index.html', blog_list=paged.items)
 
 @app.route('/blog/new', methods=['POST'])
 def new_blog():
@@ -90,18 +99,6 @@ def all_archive():
 @app.route('/tag/get', methods=['POST'])
 def get_tag():
     return str(ErrorMessage(True, Blog.objects().distinct(field="tag")))
-
-# @app.route('/comment/new', methods=['POST'])
-# def new_comment():
-    # return ''
-
-# @app.route('/comment/list', methods=['POST'])
-# def list_comment():
-    # return ''
-
-# @app.route('/comment/latest', methods=['POST'])
-# def latest_comment():
-    # return ''
 
 @app.errorhandler(404)
 def page_not_found(e):

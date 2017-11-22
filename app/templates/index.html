@@ -31,82 +31,23 @@
         </div>
         <div class="blog">
             <div class="blog_l">
-                <div class="blog_left">
-                    <h1>八百标兵奔北坡</h1>
+				{% for blog in blog_list %}
+				<div class="blog_left">
+					<h1>{{ blog.title }}</h1>
                     <div style="white-space: nowrap;">
                         <h4>苟利国家生死以，岂因祸福避趋之</h4>
                         <p>江川蛤泽</p>
                     </div>
                     <div class="article">
-                        我一直觉得，故事是一种有魔力的东西,虽然他们不能给予你什么，但却能引导出你内心深处的感情，就像所有细雨都会被草地吸引，
-                        我所做的，不过是带回了你们的童心。我是个挺天真的人，所以小时候相信所有的动植物都会说话。
+						{{ blog.content }}
                     </div>
                     <div class="blog_foot">
                         <a style="color: #4db6ac;font-weight: 100">阅读更多</a>
-                        <span style="float: right;color: #ccc;">阅读量：666666</span>
+						<span style="float: right;color: #ccc;">热度：{{ blog.pageview }}</span>
                     </div>
                 </div>
-                <div class="blog_left">
-                    <h1>八百标兵奔北坡</h1>
-                    <div style="white-space: nowrap;">
-                        <h4>苟利国家生死以，岂因祸福避趋之</h4>
-                        <p>江川蛤泽</p>
-                    </div>
-                    <div class="article">
-                        我一直觉得，故事是一种有魔力的东西,虽然他们不能给予你什么，但却能引导出你内心深处的感情，就像所有细雨都会被草地吸引，
-                        我所做的，不过是带回了你们的童心。我是个挺天真的人，所以小时候相信所有的动植物都会说话。
-                    </div>
-                    <div class="blog_foot">
-                        <a style="color: #4db6ac;font-weight: 100">阅读更多</a>
-                        <span style="float: right;color: #ccc;">阅读量：666666</span>
-                    </div>
-                </div>
-                <div class="blog_left">
-                    <h1>八百标兵奔北坡</h1>
-                    <div style="white-space: nowrap;">
-                        <h4>苟利国家生死以，岂因祸福避趋之</h4>
-                        <p>江川蛤泽</p>
-                    </div>
-                    <div class="article">
-                        我一直觉得，故事是一种有魔力的东西,虽然他们不能给予你什么，但却能引导出你内心深处的感情，就像所有细雨都会被草地吸引，
-                        我所做的，不过是带回了你们的童心。我是个挺天真的人，所以小时候相信所有的动植物都会说话。
-                    </div>
-                    <div class="blog_foot" style="margin-top: 50px;">
-                        <a style="color: #4db6ac;font-weight: 100">阅读更多</a>
-                        <span style="float: right;color: #ccc;">阅读量：666666</span>
-                    </div>
-                </div>
-                <div class="blog_left">
-                    <h1>八百标兵奔北坡</h1>
-                    <div style="white-space: nowrap;">
-                        <h4>苟利国家生死以，岂因祸福避趋之</h4>
-                        <p>江川蛤泽</p>
-                    </div>
-                    <div class="article">
-                        我一直觉得，故事是一种有魔力的东西,虽然他们不能给予你什么，但却能引导出你内心深处的感情，就像所有细雨都会被草地吸引，
-                        我所做的，不过是带回了你们的童心。我是个挺天真的人，所以小时候相信所有的动植物都会说话。
-                    </div>
-                    <div class="blog_foot" >
-                        <a style="color: #4db6ac;font-weight: 100">阅读更多</a>
-                        <span style="float: right;color: #ccc;">阅读量：666666</span>
-                    </div>
-                </div>
-                <div class="blog_left">
-                    <h1>八百标兵奔北坡</h1>
-                    <div style="white-space: nowrap;">
-                        <h4>苟利国家生死以，岂因祸福避趋之</h4>
-                        <p>江川蛤泽</p>
-                    </div>
-                    <div class="article">
-                        我一直觉得，故事是一种有魔力的东西,虽然他们不能给予你什么，但却能引导出你内心深处的感情，就像所有细雨都会被草地吸引，
-                        我所做的，不过是带回了你们的童心。我是个挺天真的人，所以小时候相信所有的动植物都会说话。
-                    </div>
-                    <div class="blog_foot">
-                        <a style="color: #4db6ac;font-weight: 100">阅读更多</a>
-                        <span style="float: right;color: #ccc;">阅读量：666666</span>
-                    </div>
-                </div>
-            </div>
+				{% endfor %}
+           </div>
 
             <div class="blog_right">
                 <div class="recent">
