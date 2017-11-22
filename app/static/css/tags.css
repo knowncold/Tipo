@@ -1,18 +1,32 @@
-#tagsList {
+.tagsList {
     position: relative;
-    margin: 200px auto 0;
+    margin-top: 50px;
+    box-shadow: 0 3px 5px #aaa;
+    background-color: #fff;
+    padding: 36px;
 }
-#tagsList a {
-    position: absolute;
-    top: 0px;
-    left: 0px;
+.tags {
+    margin-top: 24px;
+    font-size: 18px;
+}
+.tagsList a {
     font-family: Microsoft YaHei;
     color: #009789;
     font-weight: bold;
     text-decoration: none;
     padding: 3px 6px;
+    height: 30px;
+    line-height: 30px;
 }
-#tagsList a:hover {
+.tagsList {
+    background-color: #fff;
+    margin-top: 50px;
+    padding: 36px;
+    box-shadow: 0 3px 5px #aaa;
+    font-size: 26px;
+    font-weight: bold;
+}
+.tagsList a:hover {
     color: #FF0000;
     letter-spacing: 2px;
 }

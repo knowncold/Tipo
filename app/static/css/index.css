@@ -192,6 +192,7 @@ img {
 .foot {
     width: 60%;
     margin: 0 auto;
+    margin-top: 25px;
     text-align: center;
     color: #ddd;
     border-top: 1px solid #ddd;
@@ -199,11 +200,22 @@ img {
 }
 .foot p {
     font-weight: lighter;
-    font-family: Arial;
+    font-family: "Source Code Pro";
     padding-top: 30px;
     font-size: 20px;
 }
-
+.page {
+    text-align: center;
+    margin-top: 25px;
+    color: #aaa;
+    font-family: "Source Code Pro";
+}
+.page span {
+    padding: 6px;
+}
+.activePage {
+    color: #4db6ac;
+}
 @media screen and (max-width: 1299px) {
     .blog_l{
         width: 100%;
