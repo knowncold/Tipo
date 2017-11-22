@@ -87,6 +87,7 @@ img {
 }
 .blog_left {
     padding: 45px;
+    width: 90%;
     float: left;
     box-shadow: 0 3px 5px #aaa;
     background-color: #fff;
