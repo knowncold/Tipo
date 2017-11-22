@@ -90,6 +90,7 @@ img {
     float: left;
     box-shadow: 0 3px 5px #aaa;
     background-color: #fff;
+    margin-bottom: 50px;
 }
 .blog_left h1 {
     font-size: 28px;
