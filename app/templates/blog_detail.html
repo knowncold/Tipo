@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Detail</title>
-    <link rel="stylesheet" href="../static/css/blog_detail.css">
+    <link rel="stylesheet" href="/static/css/blog_detail.css">
+    <link rel="stylesheet" href="/static/css/tags.css">
+    <script type="text/javascript" src="/static/js/tags.js"></script>
 </head>
 <body>
     <div class="navigation">
@@ -21,7 +23,7 @@
                 <div style="float: left;width: 100%">
                     <span class="subname">十年生死两茫茫，不思量自难忘</span>
                     <div style="">
-                        <img src="../static/assets/search.png" />
+                        <img src="/static/assets/search.png" />
                         <input type="text" placeholder="搜索" />
                     </div>
 
@@ -48,16 +50,108 @@
 
 
                 </div>
-                <div class="tags">
+                <div class="tag">
                     <p style="color: #B2BCC2;margin-bottom: 15px">标签</p>
                     <span>web</span>
                     <span>python</span>
                 </div>
+                <div id="disqus_thread"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://tipo.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
             </div>
         </div>
-        <div class="detail_r">
+        <div class="blog_right">
+            <div class="recent">
+                <span>最近更新</span>
+                <div style="margin-top: 26px">
+                    {% for latest in latest_blog %}
+                    <p>{{ latest["title"] }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="comment">
+                <span>评论区</span>
+                <div style="margin-top: 26px">
+                    <div style="border-bottom: 1px solid #eee;width: 100%;padding-bottom: 4px;padding-left: 10px;height: 40px;line-height: 40px">
+                        <span class="author">海飞丝</span><span class="com">评论：</span><span class="tosay">八百</span>
+                    </div>
+                    <div style="border-bottom: 1px solid #eee;width: 100%;padding-bottom: 4px;padding-left: 10px;height: 40px;line-height: 40px">
+                        <span class="author">海飞丝</span><span class="com">评论：</span><span class="tosay">七百</span>
+                    </div>
+                    <div style="border-bottom: 1px solid #eee;width: 100%;padding-bottom: 4px;padding-left: 10px;height: 40px;line-height: 40px">
+                        <span class="author">海飞丝</span><span class="com">评论：</span><span class="tosay">六百</span>
+                    </div>
+                    <div style="border-bottom: 1px solid #eee;width: 100%;padding-bottom: 4px;padding-left: 10px;height: 40px;line-height: 40px">
+                        <span class="author">海飞丝</span><span class="com">评论：</span><span class="tosay">五百</span>
+                    </div>
+                    <div style="border-bottom: 1px solid #eee;width: 100%;padding-bottom: 4px;padding-left: 10px;height: 40px;line-height: 40px">
+                        <span class="author">海飞丝</span><span class="com">评论：</span><span class="tosay">四百</span>
+                    </div>
+                </div>
+            </div>
+            <div class="archive">
+                <span>ARCHIVE</span>
+                <div style="margin-top: 26px">
+                    <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
+                        <span class="year">2017</span>
+                        <span class="month">NOV</span>
+                        <span class="number">(3)</span>
+                    </div>
+                    <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
+                        <span class="year">2017</span>
+                        <span class="month">OCT</span>
+                        <span class="number">(4)</span>
+                    </div>
+                    <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
+                        <span class="year">2017</span>
+                        <span class="month">SEP</span>
+                        <span class="number">(1)</span>
+                    </div>
+                    <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
+                        <span class="year">2017</span>
+                        <span class="month">AUG</span>
+                        <span class="number">(5)</span>
+                    </div>
+                    <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
+                        <span class="year">2017</span>
+                        <span class="month">JUL</span>
+                        <span class="number">(9)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tagsList">
+                <span>TAGS</span>
+                <div class="tags">
+                    <!--<a href="#/Article.aspx?kid=1" title="星级评分">星级评分</a>-->
+                    {% for tag in tag_cloud %}
+                    <a href="#/Article.aspx?kid=1" title="星级评分">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="clear">
 
         </div>
+    </div>
+    <div class="foot">
+        <p>Designed by emobaba, powered by Flask</p>
     </div>
 </body>
 </html>
