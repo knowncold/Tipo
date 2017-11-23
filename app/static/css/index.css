@@ -84,6 +84,7 @@ img {
 .blog_l {
     font-family: "Source Code Pro";
     width: 65%;
+    float: left;
 }
 .blog_left {
     padding: 45px;
@@ -194,7 +195,7 @@ img {
     margin: 0 auto;
     margin-top: 25px;
     text-align: center;
-    color: #ddd;
+    color: #aaa;
     border-top: 1px solid #ddd;
     height: 110px;
 }
