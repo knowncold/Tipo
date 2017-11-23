@@ -24,6 +24,10 @@ body {
     color: #fff;
     float: right;
 }
+.nav a {
+    text-decoration: none;
+    color: #fff;
+}
 .nav ul li{
     float: left;
     width: 80px;
