@@ -56,15 +56,11 @@ def latest_blog():
         latest_list.append({"title":i.title, "createDay": str(i.createDay)[:10]})
     return str(ErrorMessage(True, latest_list))
 
-@app.route('/blog/get', methods=['POST'])
-def get_blog():
-    get_json = request.get_json()
-    title = get_json['title']
-    createDay = datetime.datetime.strptime(get_json['createDay'], '%Y-%m-%d')
+@app.route('/post/<year>/<month>/<day>/<title>')
+def get_blog(year, month, day, title):
+    createDay = datetime.datetime.strptime(year+'-'+month+'-'+day, '%Y-%m-%d')
     blog = Blog.objects.get_or_404(title=title, createDay=createDay)    # TODO change method
     blog.pageview += 1
-    for post in Blog.objects(tag='yu'):
-        print post.title
     blog.save()
     return str(ErrorMessage(True, blog.to_json()))
 
@@ -83,7 +79,7 @@ def count_archive():
             num_count[mon] = num
     return str(ErrorMessage(True, num_count))
 
-@app.route('/archive/all', methods=['POST'])
+@app.route('/archive/all')
 def all_archive():
     get_json = request.get_json()
     archive_type = get_json["type"]
