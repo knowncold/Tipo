@@ -1,7 +1,10 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: Microsoft YaHei, WenQuanYi Micro Hei, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;;
 }
 body {
     background-color: #F4F3F4;
@@ -71,7 +74,6 @@ input::-webkit-input-placeholder {
     /* placeholder颜色  */
     color: #fff;
     font-size: 20px;
-    font-family: Arial;
     font-weight: 200;
 }
 img {
@@ -86,7 +88,6 @@ img {
     padding: 0 50px;
 }
 .blog_l {
-    font-family: "Source Code Pro";
     width: 65%;
     float: left;
 }
@@ -205,7 +206,6 @@ img {
 }
 .foot p {
     font-weight: lighter;
-    font-family: "Source Code Pro";
     padding-top: 30px;
     font-size: 20px;
 }
@@ -213,10 +213,10 @@ img {
     text-align: center;
     margin-top: 25px;
     color: #aaa;
-    font-family: "Source Code Pro";
 }
 .page span {
     padding: 6px;
+    border-radius: 2px;
 }
 .activePage {
     color: #4db6ac;
