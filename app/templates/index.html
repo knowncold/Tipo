@@ -13,13 +13,13 @@
             <div class="content">
                 <div class="nav">
                     <ul>
-                        <li class="activeItem"><a href="index.html">HOME</a></li>
-                        <li><a href="archive.html">ARCHIVE</a></li>
-                        <li><a href="about.html">ABOUT</a></li>
+                        <li class="activeItem"><a href="/">HOME</a></li>
+                        <li><a href="/archive">ARCHIVE</a></li>
+                        <li><a href="/about">ABOUT</a></li>
                     </ul>
                 </div>
                 <div class="nav_con">
-                    <span class="name">Tipo</span>
+					<span class="name"><a href="/">Tipo</a></span>
                     <br />
                     <div style="float: left;width: 100%">
                         <span class="subname">十年生死两茫茫，不思量自难忘</span>
@@ -118,8 +118,7 @@
                 <div class="tagsList">
                     <span>TAGS</span>
                     <div class="tags">
-                        <!--<a href="#/Article.aspx?kid=1" title="星级评分">星级评分</a>-->
-						{% for tag in tag_cloud %}
+						{% for tag in tags %}
 							<a href="#/Article.aspx?kid=1" title="星级评分">{{ tag }}</a>
 						{% endfor %}
                     </div>
@@ -141,7 +140,7 @@
             </div>
         </div>
         <div class="foot">
-            <p>Designed by emobaba, powered by Flask</p>
+            <p>Theme Tipo designed by Corvino, powered by Flask</p>
         </div>
     </body>
 </html>

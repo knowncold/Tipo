@@ -3,23 +3,24 @@ from flask import render_template, request
 from models import Blog, Comment, ErrorMessage
 import datetime, json
 
+def latest_blog():
+    latest = Blog.objects().order_by('-createTime')[:5]
+    return latest
+
+def tag_cloud():
+    return Blog.objects().distinct(field="tag")
+
 @app.route('/')
 @app.route('/index')
-def index():
-    blog = Blog.objects().order_by("-createTime")
-    paged = blog.paginate(1, per_page=5)
-    return render_template('index.html', blog=paged.items)
-
 @app.route('/index/page/<page>')
-def paged(page):
+def paged(page=1):
     blog = Blog.objects().order_by("-createTime")
     paged = blog.paginate(page=int(page), per_page=5)
     latest = Blog.objects().order_by('-createTime')[:5]
     latest_list = []
-    tags = Blog.objects().distinct(field="tag")
     for i in latest:
         latest_list.append({"title":i.title, "createDay": str(i.createDay)[:10]})
-    return render_template('index.html', blog_list=paged.items, latest_blog=latest_list, tag_cloud=tags)
+    return render_template('index.html', blog_list=paged.items, latest_blog=latest_list, tags=tag_cloud())
 
 @app.route('/blog/new', methods=['POST'])
 def new_blog():
@@ -62,7 +63,8 @@ def get_blog(year, month, day, title):
     blog = Blog.objects.get_or_404(title=title, createDay=createDay)    # TODO change method
     blog.pageview += 1
     blog.save()
-    return str(ErrorMessage(True, blog.to_json()))
+    # return str(ErrorMessage(True, blog.to_json()))
+    return render_template('blog_detail.html')
 
 @app.route('/archive/count', methods=['POST'])      # month category
 def count_archive():
