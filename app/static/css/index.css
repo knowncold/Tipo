@@ -103,6 +103,11 @@ img {
     font-size: 28px;
     font-weight: bold;
 }
+.blog_left h3 {
+    margin-top: 36px;
+    font-size: 22px;
+    font-weight: 200;
+}
 .blog_left h4 {
     margin-top: 24px;
     font-size: 15px;

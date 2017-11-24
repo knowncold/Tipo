@@ -189,10 +189,10 @@ img {
     font-size: 20px;
 }
 @media screen and (max-width: 1299px) {
-    .detail_l{
+    .archive_l{
         width: 100%;
     }
-    .detail_left {
+    .archive_left {
         box-sizing: border-box;
     }
     .blog_right {
