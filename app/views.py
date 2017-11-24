@@ -16,12 +16,15 @@ def tag_cloud():
 def paged(page=1):
     blog = Blog.objects().order_by("-createTime")
     paged = blog.paginate(page=int(page), per_page=5)
-    latest = Blog.objects().order_by('-createTime')[:5]
-    # latest_list = []
-    # for i in latest:
-        # latest_list.append({"title":i.title, "createDay": str(i.createDay)[:10]})
+    return render_template('index.html', blog_list=paged.items, latest_blog=latest_blog(), tags=tag_cloud())
 
-    return render_template('index.html', blog_list=paged.items, latest_blog=latest, tags=tag_cloud())
+@app.route('/archive')
+def archive():
+    return render_template('archive.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/blog/new', methods=['POST'])
 def new_blog():
