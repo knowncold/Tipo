@@ -37,7 +37,7 @@
             <div class="blog_l">
 				{% for blog in blog_list %}
 				<div class="blog_left">
-					<h1>{{ blog.title }}</h1>
+					<h1><a href= {{ blog.url() }} > {{ blog.title }} </a></h1>
                     <div style="white-space: nowrap;">
 						<h4>{{ blog.createDay }}</h4>
 						{% for tag in blog.tag %}
@@ -48,11 +48,10 @@
 						{{ blog.content }}
                     </div>
                     <div class="blog_foot">
-                        <a style="color: #4db6ac;font-weight: 100">阅读更多</a>
+						<a style="color: #4db6ac;font-weight: 100" href= {{ blog.url() }} >阅读更多</a>
 						<span style="float: right;color: #ccc;">热度：{{ blog.pageview }}</span>
                     </div>
                 </div>
-
 				{% endfor %}
            </div>
 
@@ -61,12 +60,12 @@
                     <span>最近更新</span>
                     <div style="margin-top: 26px">
 						{% for latest in latest_blog %}
-						<p>{{ latest["title"] }}</p>
+						<p><a href={{ latest.url() }}>{{ latest.title }}</a></p>
 						{% endfor %}
                     </div>
                 </div>
                 <div class="comment">
-                    <span>评论区</span>
+                    <span>最新评论</span>
                     <div style="margin-top: 26px">
                         <div style="border-bottom: 1px solid #eee;width: 100%;padding-bottom: 4px;padding-left: 10px;height: 40px;line-height: 40px">
                             <span class="author">海飞丝</span><span class="com">评论：</span><span class="tosay">八百</span>
@@ -86,7 +85,7 @@
                     </div>
                 </div>
                 <div class="archive">
-                    <span>ARCHIVE</span>
+                    <span>归档</span>
                     <div style="margin-top: 26px">
                         <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
                             <span class="year">2017</span>
@@ -140,7 +139,7 @@
             </div>
         </div>
         <div class="foot">
-            <p>Theme Tipo designed by Corvino, powered by Flask</p>
+			<p>Theme <a href="https://github.com/knowncold/Tipo">Tipo</a> designed by Corvino, powered by Flask</p>
         </div>
     </body>
 </html>

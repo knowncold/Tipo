@@ -22,7 +22,9 @@ class Blog(db.Document):
                 'pageview' : self.pageview,
                 'tag' : self.tag
         }
-
+    
+    def url(self):
+        return '/post' + datetime.datetime.strftime(self.createDay, '/%Y/%m/%d/') + self.title
 
 class Comment(db.Document):
     name = db.StringField()
