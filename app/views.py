@@ -4,8 +4,7 @@ from models import Blog, Comment, ErrorMessage
 import datetime, json
 
 def latest_blog():
-    latest = Blog.objects().order_by('-createTime')[:5]
-    return latest
+    return Blog.objects().order_by('-createTime')[:5]
 
 def tag_cloud():
     return Blog.objects().distinct(field="tag")
@@ -16,7 +15,8 @@ def tag_cloud():
 def paged(page=1):
     blog = Blog.objects().order_by("-createTime")
     paged = blog.paginate(page=int(page), per_page=5)
-    return render_template('index.html', blog_list=paged.items, latest_blog=latest_blog(), tags=tag_cloud())
+    latest = (Blog.objects().order_by('-createTime')[:5])
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud())
 
 @app.route('/archive')
 def archive():
@@ -62,13 +62,13 @@ def list_blog():
     b = map(x, paged.items)
     return str(ErrorMessage(True, b))
 
-@app.route('/blog/latest', methods=['POST'])
-def latest_blog():
-    latest = Blog.objects().order_by('-createTime')[:5]
-    latest_list = []
-    for i in latest:
-        latest_list.append({"title":i.title, "createDay": str(i.createDay)[:10]})
-    return str(ErrorMessage(True, latest_list))
+# @app.route('/blog/latest', methods=['POST'])
+# def latest_blog():
+    # latest = Blog.objects().order_by('-createTime')[:5]
+    # latest_list = []
+    # for i in latest:
+        # latest_list.append({"title":i.title, "createDay": str(i.createDay)[:10]})
+    # return str(ErrorMessage(True, latest_list))
 
 @app.route('/post/<year>/<month>/<day>/<title>')
 def get_blog(year, month, day, title):
