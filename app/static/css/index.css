@@ -44,6 +44,10 @@ body {
     color: #fff;
     width: 100%;
 }
+.nav_con a {
+    text-decoration: none;
+    color: #fff;
+}
 .name {
     margin-top: 50px;
     float: left;
@@ -103,6 +107,10 @@ img {
     font-size: 28px;
     font-weight: bold;
 }
+.blog_left h1 a {
+    text-decoration: none;
+    color: #000;
+}
 .blog_left h3 {
     margin-top: 36px;
     font-size: 22px;
@@ -151,6 +159,10 @@ img {
     font-size: 26px;
     font-weight: bold;
     background-color: #fff;
+}
+.recent a {
+    text-decoration: none;
+    color: #000;
 }
 .recent p, .comment p, .archive p {
     padding: 0 10px;
@@ -214,18 +226,28 @@ img {
     padding-top: 30px;
     font-size: 20px;
 }
-.page {
-    text-align: center;
-    margin-top: 25px;
+.foot a {
     color: #aaa;
 }
-.page span {
-    padding: 6px;
-    border-radius: 2px;
+.page {
+    text-align: center;
+    margin-top: 28px;
 }
-.activePage {
-    color: #4db6ac;
+.pageB {
+    margin: 0 auto;
 }
+.page button {
+    width: 86px;
+    height: 36px;
+    margin-right: 50px;
+    border: none;
+    box-shadow: 0 3px 5px #aaa;
+    background-color: #009789;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1299px) {
     .blog_l{
         width: 100%;

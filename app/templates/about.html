@@ -47,7 +47,7 @@
                 <span>最近更新</span>
                 <div style="margin-top: 26px">
                     {% for latest in latest_blog %}
-                    <p>{{ latest["title"] }}</p>
+                    <p><a href={{ latest.url() }}>{{ latest.title }}</a></p>
                     {% endfor %}
                 </div>
             </div>
