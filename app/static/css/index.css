@@ -108,8 +108,37 @@ img {
     font-weight: bold;
 }
 .blog_left h1 a {
+    position: relative;
     text-decoration: none;
     color: #000;
+}
+.blog_left h1 a:hover {
+    color: #000;
+}
+.blog_left h1 a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+.blog_left h1 a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    -o-transform: scaleX(1);
+    transform: scaleX(1);
+}
+.blog_left h1 {
+
 }
 .blog_left h3 {
     margin-top: 36px;
@@ -147,7 +176,11 @@ img {
     float: left;
     margin-top: 24px;
 }
-
+.blog_foot a {
+    color: #4db6ac;
+    font-weight: 100;
+    text-decoration: none;
+}
 .blog_right {
     float: right;
     width: 25%;
