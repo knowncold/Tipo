@@ -23,7 +23,7 @@
                 <div style="float: left;width: 100%">
                     <span class="subname">十年生死两茫茫，不思量自难忘</span>
                     <div style="">
-                        <img src="../static/assets/search.png" />
+                        <img src="/static/assets/search.png" />
                         <input type="text" placeholder="搜索" />
                     </div>
 
@@ -35,9 +35,10 @@
     <div class="detail">
         <div class="detail_l">
             <div class="detail_left">
-                <h1 style="font-weight: 400">这是标题</h1>
-                <h5 style="color: #aaa;font-weight: 100">11月23日,2017 发布在 python</h5>
+				<h1 style="font-weight: 400">{{ blog.title }}</h1>
+				<h5 style="color: #aaa;font-weight: 100">11月23日,2017 发布在 {{ blog.category }}</h5>
                 <div class="arc_content">
+					{{ blog.content }}
                     <h1>在北风渐行的冬夜，如果遇见了月色，那一定是非常幸运的事了。</h1>
 
                     <h2>如果可以，此刻应该忘掉冬的萧瑟、寒冷、干燥等词汇。因为在徽州的冬日里，这些都是不存在的。这里的冬，许多树木都是四季常青的，秋后都能看的见茂密的垂柳。这里的冬，不似北方那样单纯的寒冷至极，而是不管你裹得有多严实，阴冷的空气也能窜进领子，灌入袖口、透着骨子的浑身冰凉。这里的冬，更散发着阴阴的湿气，因为多雨，所以很少有清朗的天气。即便是有雪，也面目全非。
@@ -47,13 +48,12 @@
                         大概是因为从小在乡间、田间长大，浑身上下充满乡间自然的清、静之气。骨子里刻着的是踏实二字。野，相对于陌生环境是内敛的。所以每次离开家，即便不是远走他乡，冬夜里睡在一个陌生的地方总是难眠的。在他乡的冬夜，不用刻意的去想、去看。感情便在凛冽的寒风中开始酝酿，像泔澈的沟渠，在乡间的小路上缓缓流淌。水光潋滟的窗纱，上了一层茭白釉色的枝桠。莹莹中那一剪光，镜与水中盛开的明月，犹如一朵俊俏的腊梅画。冬夜，冷而清明，纯净优美，念念不住，在某一个层次上，像极了我们的心。
 
                         我曾想把珍贵的人留在身边，在这个人世间，未来不是一个人去独自面对。我曾想把美好的回忆写在心底，在这个人世间，幸福不是一个人的清欢寡味。我也曾想把看过的风景锁在笔下，在这个人世间，岁月也不是一个人始终温柔相对。一切都是因为情感的孤独，渴望能与人交流，和熟悉的人交流。思念是一种非常奇妙的情绪。可以触景生情，可以凭空而来，但却不能忘掉风景，凭空去</h2>。
-
-
                 </div>
                 <div class="tag">
                     <p style="color: #B2BCC2;margin-bottom: 15px">标签</p>
-                    <span>web</span>
-                    <span>python</span>
+					{% for tag in blog.tag %}
+						<span>{{ tag }}</span>
+					{% endfor %}
                 </div>
                 <div id="disqus_thread"></div>
                 <script>

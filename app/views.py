@@ -75,7 +75,7 @@ def get_blog(year, month, day, title):
     blog = Blog.objects.get_or_404(title=title, createDay=createDay)    # TODO change method
     blog.pageview += 1
     blog.save()
-    return render_template('blog_detail.html')
+    return render_template('blog_detail.html', blog=blog)
 
 @app.route('/archive/count', methods=['POST'])      # month category
 def count_archive():
