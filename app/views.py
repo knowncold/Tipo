@@ -15,7 +15,6 @@ def tag_cloud():
 def paged(page=1):
     blog = Blog.objects().order_by("-createTime")
     paged = blog.paginate(page=int(page), per_page=5)
-    latest = (Blog.objects().order_by('-createTime')[:5])
     return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud())
 
 @app.route('/archive')
