@@ -16,15 +16,15 @@ def paged(page=1):
     blog = Blog.objects().order_by("-createtime")
     paged = blog.paginate(page=int(page), per_page=5)
     count = blog.count()
-    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='index')
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='index', month=month_archive())
 
 @app.route('/archive')
 def archive():
-    return render_template('archive.html', latest_blog=latest_blog(), tags=tag_cloud())
+    return render_template('archive.html', latest_blog=latest_blog(), tags=tag_cloud(), month=month_archive())
 
 @app.route('/about')
 def about():
-    return render_template('about.html', latest_blog=latest_blog(), tags=tag_cloud())
+    return render_template('about.html', latest_blog=latest_blog(), tags=tag_cloud(), month=month_archive())
 
 @app.route('/blog/new', methods=['POST'])
 def new_blog():
@@ -52,31 +52,46 @@ def new_blog():
     blog.save()
     return str(ErrorMessage(True, ''))
 
-# @app.route('/blog/list', methods=['POST'])
-# def list_blog():
-    # get_json = request.get_json()
-    # page = get_json['page']
-    # blog = Blog.objects().order_by("-createTime")
-    # paged = blog.paginate(page=page, per_page=5)
-    # x = lambda a: a.to_json()
-    # b = map(x, paged.items)
-    # return str(ErrorMessage(True, b))
-
-# @app.route('/blog/latest', methods=['POST'])
-# def latest_blog():
-    # latest = Blog.objects().order_by('-createTime')[:5]
-    # latest_list = []
-    # for i in latest:
-        # latest_list.append({"title":i.title, "createDay": str(i.createDay)[:10]})
-    # return str(ErrorMessage(True, latest_list))
-
 @app.route('/post/<year>/<month>/<day>/<title>')
 def get_blog(year, month, day, title):
     createDay = datetime.datetime.strptime(year+'-'+month+'-'+day, '%Y-%m-%d')
-    blog = Blog.objects.get_or_404(title=title, createDay=createDay)    # TODO change method
+    blog = Blog.objects.get_or_404(title=title, createDay=createDay)
     blog.pageview += 1
     blog.save()
-    return render_template('post.html', blog=blog, latest_blog=latest_blog(), tags=tag_cloud())
+    return render_template('post.html', blog=blog, latest_blog=latest_blog(), tags=tag_cloud(), month=month_archive())
+
+def month_archive():
+    num_count = {}
+    for mon in Blog.objects().distinct(field="month"):
+        num_count[mon+datetime.datetime.strftime(datetime.datetime.strptime(mon, "%Y-%m"), "%Y%b")] = Blog.objects(month=mon).count()
+    return num_count
+
+@app.route('/category/<category>')
+@app.route('/category/<category>/<page>')
+def archive_category(category, page=1):
+    blog = Blog.objects(category=category).order_by("-createtime")
+    paged = blog.paginate(page=int(page), per_page=5)
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page))
+
+@app.route('/tag/<tag>')
+@app.route('/tag/<tag>/<page>')
+def archive_tag(tag, page=1):
+    blog = Blog.objects(tag=tag).order_by("-createtime")
+    paged = blog.paginate(page=int(page), per_page=5)
+    count = blog.count()
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='tag/'+tag)
+
+@app.route('/month/<year>/<month>')
+@app.route('/month/<year>/<month>/<page>')
+def archive_month(year, month, page=1):
+    blog = Blog.objects(month=year+'-'+month).order_by("-createtime")
+    paged = blog.paginate(page=int(page), per_page=5)
+    count = blog.count()
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='tag/', month=month_archive())
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 # @app.route('/archive/count', methods=['POST'])      # month category
 # def count_archive():
@@ -111,22 +126,23 @@ def get_blog(year, month, day, title):
     # b = map(x, paged.items)
     # return str(ErrorMessage(True, b))
 
-@app.route('/category/<category>')
-@app.route('/category/<category>/<page>')
-def archive_category(category, page=1):
-    blog = Blog.objects(category=category).order_by("-createtime")
-    paged = blog.paginate(page=int(page), per_page=5)
-    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page))
 
-@app.route('/tag/<tag>')
-@app.route('/tag/<tag>/<page>')
-def archive_tag(tag, page=1):
-    blog = Blog.objects(tag=tag).order_by("-createtime")
-    paged = blog.paginate(page=int(page), per_page=5)
-    count = blog.count()
-    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='tag/'+tag)
+# @app.route('/blog/list', methods=['POST'])
+# def list_blog():
+    # get_json = request.get_json()
+    # page = get_json['page']
+    # blog = Blog.objects().order_by("-createTime")
+    # paged = blog.paginate(page=page, per_page=5)
+    # x = lambda a: a.to_json()
+    # b = map(x, paged.items)
+    # return str(ErrorMessage(True, b))
 
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
+# @app.route('/blog/latest', methods=['POST'])
+# def latest_blog():
+    # latest = Blog.objects().order_by('-createTime')[:5]
+    # latest_list = []
+    # for i in latest:
+        # latest_list.append({"title":i.title, "createDay": str(i.createDay)[:10]})
+    # return str(ErrorMessage(True, latest_list))
+
 
