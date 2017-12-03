@@ -36,7 +36,7 @@
         <div class="detail_l">
             <div class="detail_left">
 				<h1 style="font-weight: 400">{{ blog.title }}</h1>
-				<h5 style="color: #aaa;font-weight: 100">11月23日,2017 发布在 {{ blog.category }}</h5>
+				<h5 style="color: #aaa;font-weight: 100">{{ blog.date() }} 发布在 <a href="/category/{{ blog.category }}">{{ blog.category }}</a></h5>
                 <div class="arc_content">
 					{{ blog.content }}
                     <h1>在北风渐行的冬夜，如果遇见了月色，那一定是非常幸运的事了。</h1>
@@ -52,7 +52,7 @@
                 <div class="tag">
                     <p style="color: #B2BCC2;margin-bottom: 15px">标签</p>
 					{% for tag in blog.tag %}
-						<span>{{ tag }}</span>
+						<span><a href="/tag/{{ tag }}">{{ tag }}</a></span>
 					{% endfor %}
                 </div>
                 <div id="disqus_thread"></div>
@@ -81,9 +81,9 @@
             <div class="recent">
                 <span>最近更新</span>
                 <div style="margin-top: 26px">
-                    {% for latest in latest_blog %}
-                    <p>{{ latest["title"] }}</p>
-                    {% endfor %}
+					{% for latest in latest_blog %}
+						<p><a href={{ latest.url() }}>{{ latest.title }}</a></p>
+					{% endfor %}
                 </div>
             </div>
             <div class="comment">
@@ -139,10 +139,9 @@
             <div class="tagsList">
                 <span>TAGS</span>
                 <div class="tags">
-                    <!--<a href="#/Article.aspx?kid=1" title="星级评分">星级评分</a>-->
-                    {% for tag in tag_cloud %}
-                    <a href="#/Article.aspx?kid=1" title="星级评分">{{ tag }}</a>
-                    {% endfor %}
+					{% for tag in tags %}
+						<a href="/tag/{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+					{% endfor %}
                 </div>
             </div>
         </div>
@@ -151,7 +150,7 @@
         </div>
     </div>
     <div class="foot">
-        <p>Designed by emobaba, powered by Flask</p>
+		<p>Powered by <a href="https://github.com/knowncold/Tipo">Tipo</a></p>
     </div>
 </body>
 </html>

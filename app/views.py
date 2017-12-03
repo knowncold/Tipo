@@ -52,15 +52,15 @@ def new_blog():
     blog.save()
     return str(ErrorMessage(True, ''))
 
-@app.route('/blog/list', methods=['POST'])
-def list_blog():
-    get_json = request.get_json()
-    page = get_json['page']
-    blog = Blog.objects().order_by("-createTime")
-    paged = blog.paginate(page=page, per_page=5)
-    x = lambda a: a.to_json()
-    b = map(x, paged.items)
-    return str(ErrorMessage(True, b))
+# @app.route('/blog/list', methods=['POST'])
+# def list_blog():
+    # get_json = request.get_json()
+    # page = get_json['page']
+    # blog = Blog.objects().order_by("-createTime")
+    # paged = blog.paginate(page=page, per_page=5)
+    # x = lambda a: a.to_json()
+    # b = map(x, paged.items)
+    # return str(ErrorMessage(True, b))
 
 # @app.route('/blog/latest', methods=['POST'])
 # def latest_blog():
@@ -76,40 +76,40 @@ def get_blog(year, month, day, title):
     blog = Blog.objects.get_or_404(title=title, createDay=createDay)    # TODO change method
     blog.pageview += 1
     blog.save()
-    return render_template('blog_detail.html', blog=blog, latest_blog=latest_blog(), tag_cloud=tag_cloud())
+    return render_template('post.html', blog=blog, latest_blog=latest_blog(), tags=tag_cloud())
 
-@app.route('/archive/count', methods=['POST'])      # month category
-def count_archive():
-    get_json = request.get_json()
-    archive_type = get_json['type']
-    num_count = {}
-    if archive_type == 'category':
-        for catgr in Blog.objects().distinct(field="category"):
-            num = Blog.objects(category=catgr).count()
-            num_count[catgr] = num
-    elif archive_type == 'month':
-        for mon in Blog.objects().distinct(field="month"):
-            num = Blog.objects(month=mon).count()
-            num_count[mon] = num
-    return str(ErrorMessage(True, num_count))
+# @app.route('/archive/count', methods=['POST'])      # month category
+# def count_archive():
+    # get_json = request.get_json()
+    # archive_type = get_json['type']
+    # num_count = {}
+    # if archive_type == 'category':
+        # for catgr in Blog.objects().distinct(field="category"):
+            # num = Blog.objects(category=catgr).count()
+            # num_count[catgr] = num
+    # elif archive_type == 'month':
+        # for mon in Blog.objects().distinct(field="month"):
+            # num = Blog.objects(month=mon).count()
+            # num_count[mon] = num
+    # return str(ErrorMessage(True, num_count))
 
-@app.route('/archive/all')
-def all_archive():
-    get_json = request.get_json()
-    archive_type = get_json["type"]
-    key = get_json["key"]
-    page = get_json["page"]
-    if archive_type == "tag":
-        blog = Blog.objects(tag=key)
-    elif archive_type == "month":
-        blog = Blog.objects(month=key)
-    elif archive_type == "category":
-        blog = Blog.objects(category=key)
+# @app.route('/archive/all')
+# def all_archive():
+    # get_json = request.get_json()
+    # archive_type = get_json["type"]
+    # key = get_json["key"]
+    # page = get_json["page"]
+    # if archive_type == "tag":
+        # blog = Blog.objects(tag=key)
+    # elif archive_type == "month":
+        # blog = Blog.objects(month=key)
+    # elif archive_type == "category":
+        # blog = Blog.objects(category=key)
 
-    paged = blog.paginate(page=page, per_page=5)
-    x = lambda a: a.to_json()
-    b = map(x, paged.items)
-    return str(ErrorMessage(True, b))
+    # paged = blog.paginate(page=page, per_page=5)
+    # x = lambda a: a.to_json()
+    # b = map(x, paged.items)
+    # return str(ErrorMessage(True, b))
 
 @app.route('/category/<category>')
 @app.route('/category/<category>/<page>')

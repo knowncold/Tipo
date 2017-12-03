@@ -39,7 +39,7 @@
 				<div class="blog_left">
 					<h1><a href= {{ blog.url() }} > {{ blog.title }} </a></h1>
                     <div style="white-space: nowrap;">
-						<h4>{{ blog.date() }} 发表在 <a href="/category/{{ blog.category }}">{{ blog.category }}</a></h4>
+						<h4>{{ blog.date() }} 发布在 <a href="/category/{{ blog.category }}">{{ blog.category }}</a></h4>
 						{% for tag in blog.tag %}
 						<p><a href="/tag/{{ tag }}">{{ tag }}</a></p>
 						{% endfor %}
