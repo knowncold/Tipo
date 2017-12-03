@@ -20,7 +20,7 @@ def paged(page=1):
 
 @app.route('/archive')
 def archive():
-    return render_template('archive.html')
+    return render_template('archive.html', latest_blog=latest_blog(), tags=tag_cloud())
 
 @app.route('/about')
 def about():

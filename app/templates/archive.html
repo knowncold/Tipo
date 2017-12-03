@@ -18,7 +18,7 @@
                 </ul>
             </div>
             <div class="nav_con">
-                <span class="name">Tipo</span>
+				<span class="name"><a href="/">Tipo</a></span>
                 <br />
                 <div style="float: left;width: 100%">
                     <span class="subname">十年生死两茫茫，不思量自难忘</span>
@@ -108,8 +108,8 @@
                     <span>TAGS</span>
                     <div class="tags">
                         <!--<a href="#/Article.aspx?kid=1" title="星级评分">星级评分</a>-->
-                        {% for tag in tag_cloud %}
-                        <a href="#/Article.aspx?kid=1" title="星级评分">{{ tag }}</a>
+                        {% for tag in tags %}
+							<a href="/tag/{{ tag }}" title="{{ tag }}">{{ tag }}</a>
                         {% endfor %}
                     </div>
                 </div>
