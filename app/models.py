@@ -1,3 +1,4 @@
+#coding=utf-8
 from app import db
 import datetime
 import json
@@ -25,6 +26,8 @@ class Blog(db.Document):
     
     def url(self):
         return '/post' + datetime.datetime.strftime(self.createDay, '/%Y/%m/%d/') + self.title
+    def date(self):
+        return datetime.datetime.strftime(self.createDay, '%B %d, %Y')
 
 class Comment(db.Document):
     name = db.StringField()

@@ -11,11 +11,11 @@ def tag_cloud():
 
 @app.route('/')
 @app.route('/index')
-@app.route('/index/page/<page>')
+@app.route('/index/<page>')
 def paged(page=1):
-    blog = Blog.objects().order_by("-createTime")
+    blog = Blog.objects().order_by("-createtime")
     paged = blog.paginate(page=int(page), per_page=5)
-    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud())
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page))
 
 @app.route('/archive')
 def archive():
@@ -75,7 +75,7 @@ def get_blog(year, month, day, title):
     blog = Blog.objects.get_or_404(title=title, createDay=createDay)    # TODO change method
     blog.pageview += 1
     blog.save()
-    return render_template('blog_detail.html', blog=blog)
+    return render_template('blog_detail.html', blog=blog, latest_blog=latest_blog(), tag_cloud=tag_cloud())
 
 @app.route('/archive/count', methods=['POST'])      # month category
 def count_archive():
@@ -110,9 +110,19 @@ def all_archive():
     b = map(x, paged.items)
     return str(ErrorMessage(True, b))
 
-@app.route('/tag/get', methods=['POST'])
-def get_tag():
-    return str(ErrorMessage(True, Blog.objects().distinct(field="tag")))
+@app.route('/category/<category>')
+@app.route('/category/<category>/<page>')
+def archive_category(category, page=1):
+    blog = Blog.objects(category=category).order_by("-createtime")
+    paged = blog.paginate(page=int(page), per_page=5)
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page))
+
+@app.route('/tag/<tag>')
+@app.route('/tag/<tag>/<page>')
+def archive_tag(tag, page=1):
+    blog = Blog.objects(tag=tag).order_by("-createtime")
+    paged = blog.paginate(page=int(page), per_page=5)
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page))
 
 @app.errorhandler(404)
 def page_not_found(e):

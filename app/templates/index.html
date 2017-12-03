@@ -39,9 +39,9 @@
 				<div class="blog_left">
 					<h1><a href= {{ blog.url() }} > {{ blog.title }} </a></h1>
                     <div style="white-space: nowrap;">
-						<h4>{{ blog.createDay }}</h4>
+						<h4>{{ blog.date() }} 发表在 <a href="/category/{{ blog.category }}">{{ blog.category }}</a></h4>
 						{% for tag in blog.tag %}
-						<p>{{ tag }}</p>
+						<p><a href="/tag/{{ tag }}">{{ tag }}</a></p>
 						{% endfor %}
                     </div>
                     <div class="article">
@@ -118,7 +118,7 @@
                     <span>TAGS</span>
                     <div class="tags">
 						{% for tag in tags %}
-							<a href="#/Article.aspx?kid=1" title="星级评分">{{ tag }}</a>
+							<a href="/tag/{{ tag }}" title="{{ tag }}">{{ tag }}</a>
 						{% endfor %}
                     </div>
                 </div>
@@ -129,12 +129,14 @@
         </div>
         <div class="page">
             <div class="pageB">
-                <button>< PREV</button>
-                <button>NEXT ></button>
+				{% if current_page != 1 %}
+					<button><a href="/index/{{ current_page-1 }}">< PREV</a></button>
+				{% endif %}
+					<button><a href="/index/{{ current_page+1 }}">NEXT ></a></button>
             </div>
         </div>
         <div class="foot">
-			<p>Theme <a href="https://github.com/knowncold/Tipo">Tipo</a> designed by Corvino, powered by Flask</p>
+			<p>Powered by <a href="https://github.com/knowncold/Tipo">Tipo</a></p>
         </div>
     </body>
 </html>
