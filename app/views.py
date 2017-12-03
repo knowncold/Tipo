@@ -24,7 +24,7 @@ def archive():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', latest_blog=latest_blog(), tags=tag_cloud())
 
 @app.route('/blog/new', methods=['POST'])
 def new_blog():
