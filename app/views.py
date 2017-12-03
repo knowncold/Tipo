@@ -15,7 +15,8 @@ def tag_cloud():
 def paged(page=1):
     blog = Blog.objects().order_by("-createtime")
     paged = blog.paginate(page=int(page), per_page=5)
-    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page))
+    count = blog.count()
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='index')
 
 @app.route('/archive')
 def archive():
@@ -122,7 +123,8 @@ def archive_category(category, page=1):
 def archive_tag(tag, page=1):
     blog = Blog.objects(tag=tag).order_by("-createtime")
     paged = blog.paginate(page=int(page), per_page=5)
-    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page))
+    count = blog.count()
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='tag/'+tag)
 
 @app.errorhandler(404)
 def page_not_found(e):

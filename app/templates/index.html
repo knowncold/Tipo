@@ -130,9 +130,11 @@
         <div class="page">
             <div class="pageB">
 				{% if current_page != 1 %}
-					<button><a href="/index/{{ current_page-1 }}">< PREV</a></button>
+					<button><a href="/{{ archive }}/{{ current_page-1 }}">< PREV</a></button>
 				{% endif %}
-					<button><a href="/index/{{ current_page+1 }}">NEXT ></a></button>
+				{% if current_page*5 < count %}
+					<button><a href="/{{ archive }}/{{ current_page+1 }}">NEXT ></a></button>
+				{% endif %}
             </div>
         </div>
         <div class="foot">
