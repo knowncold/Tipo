@@ -4,12 +4,13 @@
     font-family: -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;;
+    sans-serif;
 }
 body {
     background-color: #F4F3F4;
 }
 .navigation {
+    box-sizing: border-box;
     background-color: #009789;
     width: 100%;
     height: 305px;
@@ -44,10 +45,6 @@ body {
     color: #fff;
     width: 100%;
 }
-.nav_con a {
-    text-decoration: none;
-    color: #fff;
-}
 .name {
     margin-top: 50px;
     float: left;
@@ -80,22 +77,19 @@ input::-webkit-input-placeholder {
     font-size: 20px;
     font-weight: 200;
 }
-img {
-    height: 70px;
-    float: right;
-}
-.blog {
+.detail {
     width: auto;
     max-width: 1300px;
     margin: 0 auto;
     margin-top: -50px;
     padding: 0 50px;
 }
-.blog_l {
+.detail_l {
     width: 65%;
     float: left;
 }
-.blog_left {
+.detail_left {
+    text-align: center;
     padding: 45px;
     float: left;
     width: 100%;
@@ -103,58 +97,37 @@ img {
     background-color: #fff;
     margin-bottom: 50px;
 }
-.blog_left h1 {
-    font-size: 28px;
+.detail_l h1 {
+    font-size: 40px;
     font-weight: bold;
 }
-.blog_left h1 a {
-    position: relative;
-    text-decoration: none;
-    color: #000;
+
+.clear {
+    clear: both;
 }
-.blog_left h1 a:hover {
-    text-decoration: underline;
+.arc_content {
+    margin-top: 20px;
 }
-.blog_left h3 {
-    margin-top: 36px;
-    font-size: 22px;
+.arc_content h1 {
+    font-size: 25px;
+    font-weight: 400;
+}
+.arc_content h2 {
+    margin-top: 20px;
     font-weight: 200;
+    font-size:22px;
+    box-sizing: border-box;
 }
-.blog_left h4 {
-    margin-top: 24px;
-    font-size: 15px;
-    font-weight: 100;
-    color: #444;
-    font-style: italic;
-    float: left;
+.tag {
+    margin-top: 40px;
 }
-.blog_left p {
-    height: 20px;
-    font-size: 14px;
-    float: left;
-    margin-top: 24px;
-    margin-left: 20px;
+.tag span {
+    height: 30px;
+    line-height: 30px;
     color: #4db6ac;
-    border: 1px solid #fff;
-    box-shadow: 2px 2px 6px #ccc;
-    border-radius: 10px;
-    padding: 1px 8px;
-}
-.article {
-    width: 100%;
-    font-size: 15px;
-    float: left;
-    margin-top: 24px;
-}
-.blog_foot {
-    width: 100%;
-    float: left;
-    margin-top: 24px;
-}
-.blog_foot a {
-    color: #4db6ac;
-    font-weight: 100;
-    text-decoration: none;
+    padding: 5px 8px;
+    border: 1px solid #4db6ac;
+    margin-right:10px;
 }
 .blog_right {
     float: right;
@@ -169,6 +142,10 @@ img {
     background-color: #fff;
 }
 .recent a {
+    text-decoration: none;
+    color: #000;
+}
+.recent a:visited {
     text-decoration: none;
     color: #000;
 }
@@ -217,9 +194,6 @@ img {
     font-weight: 100;
     color: #aaa;
 }
-.clear {
-    clear: both;
-}
 .foot {
     width: 60%;
     margin: 0 auto;
@@ -238,34 +212,11 @@ img {
     color: #aaa;
     text-decoration: none;
 }
-.page {
-    text-align: center;
-    margin-top: 28px;
-}
-.pageB {
-    margin: 0 auto;
-}
-.page button {
-    width: 86px;
-    height: 36px;
-    margin-right: 50px;
-    border: none;
-    box-shadow: 0 3px 5px #aaa;
-    background-color: #009789;
-    color: #fff;
-    outline: none;
-    cursor: pointer;
-}
-.page a {
-    text-decoration: none;
-    color: #ffffff;
-}
-
 @media screen and (max-width: 1299px) {
-    .blog_l{
+    .detail_l{
         width: 100%;
     }
-    .blog_left {
+    .detail_left {
         box-sizing: border-box;
     }
     .blog_right {

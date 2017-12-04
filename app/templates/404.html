@@ -1,1 +1,101 @@
-<h1> 404 can not found</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+    <link rel="stylesheet" href="../static/css/404.css">
+    <link rel="stylesheet" href="../static/css/tags.css">
+    <script type="text/javascript" src="../static/js/tags.js"></script>
+</head>
+<body>
+<div class="navigation">
+    <div class="content">
+        <div class="nav">
+            <ul>
+                <li class="activeItem"><a href="/index">HOME</a></li>
+                <li><a href="/archive">ARCHIVE</a></li>
+                <li><a href="/about">ABOUT</a></li>
+            </ul>
+        </div>
+        <div class="nav_con">
+            <span class="name">Tipo</span>
+            <br />
+            <div style="float: left;width: 100%">
+                <span class="subname">十年生死两茫茫，不思量自难忘</span>
+                <div style="">
+                    <img src="../static/assets/search.png" style="height: 70px;float: right;"/>
+                    <input type="text" placeholder="搜索" />
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<div class="detail">
+    <div class="detail_l">
+        <div class="detail_left">
+            <div style="margin: 0 auto;">
+                <img src="../static/assets/404.png" />
+            </div>
+        </div>
+    </div>
+    <div class="blog_right">
+        <div class="recent">
+            <span>最近更新</span>
+            <div style="margin-top: 26px">
+                {% for latest in latest_blog %}
+                <p><a href={{ latest.url() }}>{{ latest.title }}</a></p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="comment">
+            <span>评论区</span>
+            <div style="margin-top: 26px">
+                <div style="border-bottom: 1px solid #eee;width: 100%;padding-bottom: 4px;padding-left: 10px;height: 40px;line-height: 40px">
+                    <span class="author">海飞丝</span><span class="com">评论：</span><span class="tosay">八百</span>
+                </div>
+                <div style="border-bottom: 1px solid #eee;width: 100%;padding-bottom: 4px;padding-left: 10px;height: 40px;line-height: 40px">
+                    <span class="author">海飞丝</span><span class="com">评论：</span><span class="tosay">七百</span>
+                </div>
+                <div style="border-bottom: 1px solid #eee;width: 100%;padding-bottom: 4px;padding-left: 10px;height: 40px;line-height: 40px">
+                    <span class="author">海飞丝</span><span class="com">评论：</span><span class="tosay">六百</span>
+                </div>
+                <div style="border-bottom: 1px solid #eee;width: 100%;padding-bottom: 4px;padding-left: 10px;height: 40px;line-height: 40px">
+                    <span class="author">海飞丝</span><span class="com">评论：</span><span class="tosay">五百</span>
+                </div>
+                <div style="border-bottom: 1px solid #eee;width: 100%;padding-bottom: 4px;padding-left: 10px;height: 40px;line-height: 40px">
+                    <span class="author">海飞丝</span><span class="com">评论：</span><span class="tosay">四百</span>
+                </div>
+            </div>
+        </div>
+        <div class="archive">
+            <span>ARCHIVE</span>
+            <div style="margin-top: 26px">
+                {% for i in month %}
+                <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
+                    <a href="/month/{{ i[:4] }}/{{ i[5:7] }}" style="text-decoration:none;">
+                        <span class="year" style="color:#000">{{ i[7:11] }}</span>
+                        <span class="month">{{ i[11:] }}</span>
+                        <span class="number">({{ month[i] }})</span>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tagsList">
+            <span>TAGS</span>
+            <div class="tags">
+                {% for tag in tags %}
+                <a href="/tag/{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="foot">
+    <p>Powered by <a href="https://github.com/knowncold/Tipo">Tipo</a></p>
+</div>
+</body>
+</html>

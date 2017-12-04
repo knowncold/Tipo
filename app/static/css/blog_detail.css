@@ -211,6 +211,10 @@ img {
     padding-top: 30px;
     font-size: 20px;
 }
+.foot a ,.foot a:visited {
+    color: #aaa;
+    text-decoration: none;
+}
 @media screen and (max-width: 1299px) {
     .detail_l{
         width: 100%;
