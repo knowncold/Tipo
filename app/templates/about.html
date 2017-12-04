@@ -5,7 +5,7 @@
     <title>About</title>
     <link rel="stylesheet" href="/static/css/index.css">
     <link rel="stylesheet" href="/static/css/tags.css">
-    <script type="text/javascript" src="/static/js/tags.js"></script>
+    <script type="text/javascript" src=/static/js/tags.js"></script>
 </head>
 <body>
     <div class="navigation">
@@ -76,10 +76,11 @@
                 <div style="margin-top: 26px">
 					{% for i in month %}
 					<div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
-						<a href="/month/{{ i[:4] }}/{{ i[5:7] }}">
-						<span class="year">{{ i[7:11] }}</span>
+						<a href="/month/{{ i[:4] }}/{{ i[5:7] }}" style="text-decoration: none">
+						<span class="year" style="color: #000">{{ i[7:11] }}</span>
 						<span class="month">{{ i[11:] }}</span>
 						<span class="number">({{ month[i] }})</span>
+                        </a>
 					</div>
 					{% endfor %}
                 </div>

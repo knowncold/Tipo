@@ -144,6 +144,14 @@ img {
     font-weight: bold;
     background-color: #fff;
 }
+.recent a {
+    text-decoration: none;
+    color: #000;
+}
+.recent a:visited {
+    text-decoration: none;
+    color: #000;
+}
 .recent p, .comment p, .archive p {
     padding: 0 10px;
     margin-top: 10px;

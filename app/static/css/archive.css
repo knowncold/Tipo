@@ -196,6 +196,10 @@ img {
     padding-top: 30px;
     font-size: 20px;
 }
+.foot a {
+    text-decoration: none;
+    color: #aaa;
+}
 @media screen and (max-width: 1299px) {
     .archive_l{
         width: 100%;

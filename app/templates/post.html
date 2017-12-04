@@ -36,7 +36,7 @@
         <div class="detail_l">
             <div class="detail_left">
 				<h1 style="font-weight: 400">{{ blog.title }}</h1>
-				<h5 style="color: #aaa;font-weight: 100">{{ blog.date() }} 发布在 <a href="/category/{{ blog.category }}">{{ blog.category }}</a></h5>
+				<h5 style="color: #aaa;font-weight: 100">{{ blog.date() }} 发布在 <a href="/category/{{ blog.category }}" style="text-decoration: none;color: #aaa">{{ blog.category }}</a></h5>
                 <div class="arc_content">
 					{{ blog.content }}
                     <h1>在北风渐行的冬夜，如果遇见了月色，那一定是非常幸运的事了。</h1>
@@ -52,7 +52,7 @@
                 <div class="tag">
                     <p style="color: #B2BCC2;margin-bottom: 15px">标签</p>
 					{% for tag in blog.tag %}
-						<span><a href="/tag/{{ tag }}">{{ tag }}</a></span>
+						<span><a href="/tag/{{ tag }}" style="text-decoration: none;color: #4db6ac">{{ tag }}</a></span>
 					{% endfor %}
                 </div>
                 <div id="disqus_thread"></div>
@@ -111,10 +111,11 @@
                 <div style="margin-top: 26px">
 					{% for i in month %}
 					<div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
-						<a href="/month/{{ i[:4] }}/{{ i[5:7] }}">
-						<span class="year">{{ i[7:11] }}</span>
+						<a href="/month/{{ i[:4] }}/{{ i[5:7] }}" style="text-decoration:none;">
+						<span class="year" style="color:#000">{{ i[7:11] }}</span>
 						<span class="month">{{ i[11:] }}</span>
 						<span class="number">({{ month[i] }})</span>
+                        </a>
 					</div>
 					{% endfor %}
                 </div>
