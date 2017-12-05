@@ -1,22 +1,6 @@
-.dsq-widget-user {
-    font-weight: 200 !important;
-    color: #000;
+#recentComments a {
     text-decoration: none;
-}
-.dsq-widget-comment:before {
-    content: "评论:";
-    font-weight: 100;
-    font-size: 20px;
-}
-.dsq-widget-comment p {
-    border-bottom: none;
-}
-.dsq-widget-avatar {
-    display: none;
-}
-.dsq-widget-meta {
-    display: none;
-}
-.dsq-widget-item {
-    border-bottom: 1px solid #eee;
+    color: #419489;
+    font-weight: 200;
+    font-size: 25px;
 }
