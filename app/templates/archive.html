@@ -53,14 +53,14 @@
     <div class="archive">
         <div class="archive_l">
             <div class="archive_left">
-                <h1>January</h1>
-                <ul>
-                    <li>伪装成独白的爱情</li>
-                    <li>霍乱时期的爱情</li>
-                    <li>不能承受的生命之轻</li>
-                    <li>窗边的小豆豆</li>
-                    <li>你的孤独，虽败犹荣</li>
-                </ul>
+				{% for month in blog_list %}
+				<h1>{{ month }}</h1>
+					<ul>
+					{% for blog in blog_list[month] %}
+					<li><a href="{{ blog.url() }}">{{ blog.title }}</a></li>
+					{% endfor %}
+					</ul>
+				{% endfor %}
             </div>
         </div>
             <div class="blog_right">

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Detail</title>
+	<title>{{ blog.title }}</title>
     <link rel="stylesheet" href="/static/css/blog_detail.css">
     <link rel="stylesheet" href="/static/css/tags.css">
     <link rel="stylesheet" href="/static/css/comments.css">
@@ -56,7 +56,9 @@
 				<h1 style="font-weight: 400">{{ blog.title }}</h1>
 				<h5 style="color: #aaa;font-weight: 100">{{ blog.date() }} 发布在 <a href="/category/{{ blog.category }}" style="text-decoration: none;color: #aaa">{{ blog.category }}</a></h5>
                 <div class="arc_content">
-					{{ blog.content }}
+						{% autoescape false %}
+						{{ blog.content }}
+						{% endautoescape %}
                     <h1>在北风渐行的冬夜，如果遇见了月色，那一定是非常幸运的事了。</h1>
 
                     <h2>如果可以，此刻应该忘掉冬的萧瑟、寒冷、干燥等词汇。因为在徽州的冬日里，这些都是不存在的。这里的冬，许多树木都是四季常青的，秋后都能看的见茂密的垂柳。这里的冬，不似北方那样单纯的寒冷至极，而是不管你裹得有多严实，阴冷的空气也能窜进领子，灌入袖口、透着骨子的浑身冰凉。这里的冬，更散发着阴阴的湿气，因为多雨，所以很少有清朗的天气。即便是有雪，也面目全非。

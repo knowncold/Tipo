@@ -20,7 +20,11 @@ def paged(page=1):
 
 @app.route('/archive')
 def archive():
-    return render_template('archive.html', latest_blog=latest_blog(), tags=tag_cloud(), month=month_archive())
+    archive_list = {}
+    month = Blog.objects().order_by("month").distinct(field="month")[::-1]
+    for m in month:
+        archive_list[datetime.datetime.strftime(datetime.datetime.strptime(m, "%Y-%m"), "%B")]=(Blog.objects(month=m).order_by("-createTime"))
+    return render_template('archive.html', latest_blog=latest_blog(), tags=tag_cloud(), month=month_archive(), blog_list=archive_list)
 
 @app.route('/about')
 def about():
@@ -71,7 +75,8 @@ def month_archive():
 def archive_category(category, page=1):
     blog = Blog.objects(category=category).order_by("-createtime")
     paged = blog.paginate(page=int(page), per_page=5)
-    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page))
+    count = blog.count()
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='category/'+category)
 
 @app.route('/tag/<tag>')
 @app.route('/tag/<tag>/<page>')
@@ -92,57 +97,4 @@ def archive_month(year, month, page=1):
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
-
-# @app.route('/archive/count', methods=['POST'])      # month category
-# def count_archive():
-    # get_json = request.get_json()
-    # archive_type = get_json['type']
-    # num_count = {}
-    # if archive_type == 'category':
-        # for catgr in Blog.objects().distinct(field="category"):
-            # num = Blog.objects(category=catgr).count()
-            # num_count[catgr] = num
-    # elif archive_type == 'month':
-        # for mon in Blog.objects().distinct(field="month"):
-            # num = Blog.objects(month=mon).count()
-            # num_count[mon] = num
-    # return str(ErrorMessage(True, num_count))
-
-# @app.route('/archive/all')
-# def all_archive():
-    # get_json = request.get_json()
-    # archive_type = get_json["type"]
-    # key = get_json["key"]
-    # page = get_json["page"]
-    # if archive_type == "tag":
-        # blog = Blog.objects(tag=key)
-    # elif archive_type == "month":
-        # blog = Blog.objects(month=key)
-    # elif archive_type == "category":
-        # blog = Blog.objects(category=key)
-
-    # paged = blog.paginate(page=page, per_page=5)
-    # x = lambda a: a.to_json()
-    # b = map(x, paged.items)
-    # return str(ErrorMessage(True, b))
-
-
-# @app.route('/blog/list', methods=['POST'])
-# def list_blog():
-    # get_json = request.get_json()
-    # page = get_json['page']
-    # blog = Blog.objects().order_by("-createTime")
-    # paged = blog.paginate(page=page, per_page=5)
-    # x = lambda a: a.to_json()
-    # b = map(x, paged.items)
-    # return str(ErrorMessage(True, b))
-
-# @app.route('/blog/latest', methods=['POST'])
-# def latest_blog():
-    # latest = Blog.objects().order_by('-createTime')[:5]
-    # latest_list = []
-    # for i in latest:
-        # latest_list.append({"title":i.title, "createDay": str(i.createDay)[:10]})
-    # return str(ErrorMessage(True, latest_list))
-
 
