@@ -7,6 +7,23 @@
     <link rel="stylesheet" href="/static/css/tags.css">
     <link rel="stylesheet" href="/static/css/comments.css">
     <script type="text/javascript" src="/static/js/tags.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: 'https://disqus.com/api/3.0/forums/listPosts.json?',
+            dataType: 'json',
+            data: {
+                "forum": 'tipo',
+                "api_key": 'Ba2FiIZgbu5YBXHe6hnWFhYxGw82yCrljRBalPrfzlKF46PRHTHS0xNrLRiei7mM',
+                "limit": '5'
+            }
+        }).done(function(res) {
+            for (var i = 0; i < res.response.length; i++) {
+                $('<span><a href=' + res.response[i].url+ '> ' + res.response[i].author.name+ '</a><p>'+res.response[i].raw_message.substring(0,8) +'...</p></span><br>').appendTo('#recentComments');
+            }
+        }).fail(function() {
+        });
+    </script>
 </head>
 <body>
     <div class="navigation">
@@ -56,9 +73,9 @@
                     </div>
                 </div>
                 <div class="comment">
-                    <span>最近评论</span>
-                    <div style="margin-top: 26px">
-                        <script type="text/javascript" src="http://tipo.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script>
+                    <span>最新评论</span>
+                    <div id="recentComments" style="margin-top: 26px">
+
                     </div>
                 </div>
                 <div class="archives">

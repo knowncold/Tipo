@@ -18,15 +18,17 @@
             for (var i = 0; i < res.response.length; i++) {
                 $('<a href=' + res.response[i].url+ '> ' + res.response[i].author.name+ '</a>:  '+res.response[i].raw_message+' <br>').appendTo('#recentComments');
             }
-            $('#recentComments').toggleClass('show');
+            $('#comment').toggleClass('sh');
         }).fail(function() {
-            $('<span>暂无数据</span>').appendTo('#recentComments');
         });
     </script>
 </head>
 <body>
-    <div id="recentComments">
+<div id="comment">
+    <span>最新评论</span>
+    <div id="recentComments" style="margin-top: 26px">
 
     </div>
+</div>
 </body>
 </html>
