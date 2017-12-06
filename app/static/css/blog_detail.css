@@ -45,6 +45,10 @@ body {
     color: #fff;
     width: 100%;
 }
+.nav_con a {
+    text-decoration: none;
+    color: #fff;
+}
 .name {
     margin-top: 50px;
     float: left;
