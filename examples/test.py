@@ -4,8 +4,8 @@ import markdown
 import codecs
 import json
 
-# ip = '127.0.0.1:5000'
-ip = '115.159.83.140'
+ip = '127.0.0.1:5000'
+# ip = '115.159.83.140'
 mdFile = sys.argv[1]
 title, category, tags, createDay = mdFile.split('+')
 
