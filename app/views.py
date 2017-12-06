@@ -13,7 +13,7 @@ def tag_cloud():
 @app.route('/index')
 @app.route('/index/<page>')
 def paged(page=1):
-    blog = Blog.objects().order_by("-createtime")
+    blog = Blog.objects().order_by("-createTime")
     paged = blog.paginate(page=int(page), per_page=5)
     count = blog.count()
     return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='index', month=month_archive())
