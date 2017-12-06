@@ -191,7 +191,7 @@ img {
     margin: 0 auto;
     margin-top: 25px;
     text-align: center;
-    color: #aaa;
+    color: #bbb;
     border-top: 1px solid #ddd;
     height: 110px;
 }
@@ -200,9 +200,10 @@ img {
     padding-top: 30px;
     font-size: 20px;
 }
-.foot a {
+.foot a ,.foot a:visited {
+    color: #ccc;
     text-decoration: none;
-    color: #aaa;
+    font-style: italic;
 }
 @media screen and (max-width: 1299px) {
     .archive_l{

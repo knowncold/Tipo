@@ -22,7 +22,7 @@
                 $('<span>最新评论</span>').appendTo('#sp');
                 for (var i = 0; i < res.response.length; i++) {
                     console.log(res.response[i]);
-                    $('<span><a href=' + res.response[i].url+ '> ' + res.response[i].author.name+ '</a><p>'+res.response[i].raw_message.substring(0, 8) + '...</p>' +'</span><br>').appendTo('#recentComments');
+                    $('<span><a href=' + res.response[i].url+ '> ' + res.response[i].author.name+ '</a><p>'+res.response[i].raw_message.substring(0, 12) + '...</p>' +'</span><br>').appendTo('#recentComments');
                 }
                 $('#comment').toggleClass('comment');
             }

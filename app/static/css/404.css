@@ -199,7 +199,7 @@ input::-webkit-input-placeholder {
     margin: 0 auto;
     margin-top: 25px;
     text-align: center;
-    color: #aaa;
+    color: #bbb;
     border-top: 1px solid #ddd;
     height: 110px;
 }
@@ -209,8 +209,9 @@ input::-webkit-input-placeholder {
     font-size: 20px;
 }
 .foot a ,.foot a:visited {
-    color: #aaa;
+    color: #ccc;
     text-decoration: none;
+    font-style: italic;
 }
 @media screen and (max-width: 1299px) {
     .detail_l{

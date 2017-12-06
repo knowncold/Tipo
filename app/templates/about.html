@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>About</title>
-    <link rel="stylesheet" href="../static/css/index.css">
-    <link rel="stylesheet" href="../static/css/tags.css">
-    <link rel="stylesheet" href="../static/css/comments.css">
-    <script type="text/javascript" src="../static/js/tags.js"></script>
-    <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/tags.css">
+    <link rel="stylesheet" href="/static/css/comments.css">
+    <script type="text/javascript" src="/static/js/tags.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
         $.ajax({
             url: 'https://disqus.com/api/3.0/forums/listPosts.json?',
@@ -22,7 +22,7 @@
                 $('<span>最新评论</span>').appendTo('#sp');
                 for (var i = 0; i < res.response.length; i++) {
                     console.log(res.response[i]);
-                    $('<span><a href=' + res.response[i].url+ '> ' + res.response[i].author.name+ '</a><p>'+res.response[i].raw_message.substring(0, 8) + '...</p>' +'</span><br>').appendTo('#recentComments');
+                    $('<span><a href=' + res.response[i].url+ '> ' + res.response[i].author.name+ '</a><p>'+res.response[i].raw_message.substring(0, 12) + '...</p>' +'</span><br>').appendTo('#recentComments');
                 }
                 $('#comment').toggleClass('comment');
             }
@@ -47,7 +47,7 @@
                 <div style="float: left;width: 100%">
                     <span class="subname">十年生死两茫茫，不思量自难忘</span>
                     <div style="">
-                        <img src="../static/assets/search.png" />
+                        <img src="/static/assets/search.png" />
                         <input type="text" placeholder="搜索" />
                     </div>
 
@@ -60,7 +60,7 @@
         <div class="blog_l">
             <div class="blog_left">
                 <h1>ABOUT ME</h1>
-                <h2 style="margin-top: 25px;margin-bottom: 6px;color: #4db6ac;font-weight: 400;">关于工作</h2>
+                <h2 style="margin-top: 36px;margin-bottom: 6px;color: #4db6ac;font-weight: 400;">关于工作</h2>
                 <span>约12岁接触编程，14岁开始沉迷</span><br>
                     <span>沉浸在该领域已超10年，目前约6年正式工作经验</span><br>
                     <span>做过好几年游戏</span><br>
