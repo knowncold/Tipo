@@ -84,7 +84,7 @@ def archive_tag(tag, page=1):
     blog = Blog.objects(tag=tag).order_by("-createtime")
     paged = blog.paginate(page=int(page), per_page=5)
     count = blog.count()
-    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='tag/'+tag)
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='tag/'+tag, month=month_archive())
 
 @app.route('/month/<year>/<month>')
 @app.route('/month/<year>/<month>/<page>')
@@ -96,5 +96,5 @@ def archive_month(year, month, page=1):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    return render_template('404.html', latest_blog = latest_blog(), tags=tag_cloud(), month = month_archive()), 404
 

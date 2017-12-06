@@ -52,16 +52,16 @@
     </div>
     <div class="archive">
         <div class="archive_l">
+			{% for month in blog_list %}
             <div class="archive_left">
-				{% for month in blog_list %}
 				<h1>{{ month }}</h1>
 					<ul>
 					{% for blog in blog_list[month] %}
 					<li><a href="{{ blog.url() }}">{{ blog.title }}</a></li>
 					{% endfor %}
 					</ul>
-				{% endfor %}
             </div>
+			{% endfor %}
         </div>
             <div class="blog_right">
                 <div class="recent">
@@ -81,41 +81,24 @@
                 <div class="archives">
                     <span>ARCHIVE</span>
                     <div style="margin-top: 26px">
-                        <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
-                            <span class="year">2017</span>
-                            <span class="month">NOV</span>
-                            <span class="number">(3)</span>
-                        </div>
-                        <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
-                            <span class="year">2017</span>
-                            <span class="month">OCT</span>
-                            <span class="number">(4)</span>
-                        </div>
-                        <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
-                            <span class="year">2017</span>
-                            <span class="month">SEP</span>
-                            <span class="number">(1)</span>
-                        </div>
-                        <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
-                            <span class="year">2017</span>
-                            <span class="month">AUG</span>
-                            <span class="number">(5)</span>
-                        </div>
-                        <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
-                            <span class="year">2017</span>
-                            <span class="month">JUL</span>
-                            <span class="number">(9)</span>
-                        </div>
+						{% for i in month %}
+						<div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
+							<a href="/month/{{ i[:4] }}/{{ i[5:7] }}" style="text-decoration:none;">
+								<span class="year" style="color:#000">{{ i[7:11] }}</span>
+								<span class="month">{{ i[11:] }}</span>
+								<span class="number">({{ month[i] }})</span>
+							</a>
+						</div>
+						{% endfor %}
                     </div>
                 </div>
                 <div class="tagsList">
-                    <span>TAGS</span>
-                    <div class="tags">
-                        <!--<a href="#/Article.aspx?kid=1" title="星级评分">星级评分</a>-->
-                        {% for tag in tags %}
-							<a href="/tag/{{ tag }}" title="{{ tag }}">{{ tag }}</a>
-                        {% endfor %}
-                    </div>
+					<span>TAGS</span>
+					<div class="tags">
+						{% for tag in tags %}
+						<a href="/tag/{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+						{% endfor %}
+					</div>
                 </div>
             </div>
             <div class="clear">
