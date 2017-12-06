@@ -51,8 +51,9 @@ def new_blog():
         tags = get_json['tags']
     else:
         tags = None
+    category = get_json['category']
 
-    blog = Blog(title=title, content=content, tag=tags, createDay=createDay)
+    blog = Blog(title=title, content=content, tag=tags, createDay=createDay, category=category)
     blog.save()
     return str(ErrorMessage(True, ''))
 

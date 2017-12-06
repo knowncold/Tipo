@@ -4,6 +4,8 @@ import markdown
 import codecs
 import json
 
+# ip = '127.0.0.1:5000'
+ip = '115.159.83.140'
 mdFile = sys.argv[1]
 title, category, tags, createDay = mdFile.split('+')
 
@@ -13,5 +15,5 @@ content = markdown.markdown(text)
 
 headers = {'Content-Type': 'application/json'}
 payload = {'title': title, 'category': category,  'content': content, 'tags': tags.split('-'), 'createDay': createDay.split('.')[0]}
-r = requests.post("http://127.0.0.1:5000/blog/new", data=json.dumps(payload), headers=headers)
+r = requests.post("http://"+ip+"/blog/new", data=json.dumps(payload), headers=headers)
 print r
