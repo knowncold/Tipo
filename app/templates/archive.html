@@ -62,16 +62,6 @@
 					</ul>
 				{% endfor %}
             </div>
-            <div class="archive_left">
-                {% for month in blog_list %}
-                <h1>{{ month }}</h1>
-                <ul>
-                    {% for blog in blog_list[month] %}
-                    <li><a href="{{ blog.url() }}">{{ blog.title }}</a></li>
-                    {% endfor %}
-                </ul>
-                {% endfor %}
-            </div>
         </div>
             <div class="blog_right">
                 <div class="recent">

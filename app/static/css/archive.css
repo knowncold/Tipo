@@ -103,6 +103,10 @@ img {
     background-color: #fff;
     margin-bottom: 50px;
 }
+.archive_left a {
+    text-decoration: none;
+    color: #444444;
+}
 .archive_l h1 {
     font-size: 40px;
     font-weight: bold;
