@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/static/css/comments.css">
-    <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../static/css/comments.css">
+    <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
         $.ajax({
             url: 'https://disqus.com/api/3.0/forums/listPosts.json?',
@@ -15,17 +15,21 @@
                 "limit": '5'
             }
         }).done(function(res) {
-            for (var i = 0; i < res.response.length; i++) {
-                $('<a href=' + res.response[i].url+ '> ' + res.response[i].author.name+ '</a>:  '+res.response[i].raw_message+' <br>').appendTo('#recentComments');
+            if(res.code === 0) {
+                $('最新评论').appendTo('#sp');
+                for (var i = 0; i < res.response.length; i++) {
+                    console.log(res.response[i]);
+                    $('<a href=' + res.response[i].url+ '> ' + res.response[i].author.name+ '</a>:  '+res.response[i].raw_message+' <br>').appendTo('#recentComments');
+                }
             }
-            $('#comment').toggleClass('sh');
-        }).fail(function() {
-        });
+            }).fail(function() {
+
+            });
     </script>
 </head>
 <body>
 <div id="comment">
-    <span>最新评论</span>
+    <div id="sp"></div>
     <div id="recentComments" style="margin-top: 26px">
 
     </div>

@@ -103,6 +103,10 @@ img {
     background-color: #fff;
     margin-bottom: 50px;
 }
+.blog_left span {
+    padding-left: 20px;
+    color: #4db6ac;
+}
 .blog_left h1 {
     font-size: 28px;
     font-weight: bold;
