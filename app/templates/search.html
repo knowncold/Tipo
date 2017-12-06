@@ -1,0 +1,140 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>
+        Tipo
+    </title>
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <link rel="stylesheet" href="/static/css/tags.css" />
+    <link rel="stylesheet" href="/static/css/comments.css" />
+    <script type="text/javascript" src="/static/js/tags.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: 'https://disqus.com/api/3.0/forums/listPosts.json?',
+            dataType: 'json',
+            data: {
+                "forum": 'tipo',
+                "api_key": 'Ba2FiIZgbu5YBXHe6hnWFhYxGw82yCrljRBalPrfzlKF46PRHTHS0xNrLRiei7mM',
+                "limit": '5'
+            }
+        }).done(function(res) {
+            if(res.code === 0) {
+                $('<span>最新评论</span>').appendTo('#sp');
+                for (var i = 0; i < res.response.length; i++) {
+                    console.log(res.response[i]);
+                    $('<span><a href=' + res.response[i].url+ '> ' + res.response[i].author.name+ '</a><p>'+res.response[i].raw_message.substring(0, 8) + '...</p>' +'</span><br>').appendTo('#recentComments');
+                }
+                $('#comment').toggleClass('comment');
+            }
+        }).fail(function() {
+
+        });
+    </script>
+</head>
+<body>
+<div class="navigation">
+    <div class="content">
+        <div class="nav">
+            <ul>
+                <li class="activeItem"><a href="/">HOME</a></li>
+                <li><a href="/archive">ARCHIVE</a></li>
+                <li><a href="/about">ABOUT</a></li>
+            </ul>
+        </div>
+        <div class="nav_con">
+            <span class="name"><a href="/">Tipo</a></span>
+            <br />
+            <div style="float: left;width: 100%">
+                <span class="subname">十年生死两茫茫，不思量自难忘</span>
+                <div style="">
+                    <img src="/static/assets/search.png" />
+                    <input type="text" placeholder="搜索" />
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<div class="blog">
+    <div class="blog_l">
+        {% for blog in blog_list %}
+        <div class="blog_left">
+            <h1><a href= {{ blog.url() }} > {{ blog.title }} </a></h1>
+            <div style="white-space: nowrap;">
+                <h4>{{ blog.date() }} 发布在 <a href="/category/{{ blog.category }}" style="text-decoration: none;color: #444;">{{ blog.category }}</a></h4>
+                {% for tag in blog.tag %}
+                <p><a href="/tag/{{ tag }}" style="text-decoration: none;color: #4db6ac;">{{ tag }}</a></p>
+                {% endfor %}
+            </div>
+            <div class="article">
+                {% autoescape false %}
+                {{ blog.content }}
+                {% endautoescape %}
+            </div>
+            <div class="blog_foot">
+                <a href= {{ blog.url() }} >阅读更多</a>
+                <span style="float: right;color: #ccc;">热度：{{ blog.pageview }}</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="blog_right">
+        <div class="recent">
+            <span>最近更新</span>
+            <div style="margin-top: 26px">
+                {% for latest in latest_blog %}
+                <p><a href={{ latest.url() }}>{{ latest.title }}</a></p>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="comment">
+            <div id="sp"></div>
+            <div id="recentComments" style="margin-top: 26px">
+
+            </div>
+        </div>
+        <div class="archive">
+            <span>归档</span>
+            <div style="margin-top: 26px">
+                {% for i in month %}
+                <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
+                    <a href="/month/{{ i[:4] }}/{{ i[5:7] }}" style="text-decoration: none">
+                        <span class="year" style="color: #000">{{ i[7:11] }}</span>
+                        <span class="month">{{ i[11:] }}</span>
+                        <span class="number">({{ month[i] }})</span>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tagsList">
+            <span>TAGS</span>
+            <div class="tags">
+                {% for tag in tags %}
+                <a href="/tag/{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="clear">
+
+    </div>
+</div>
+<div class="page">
+    <div class="pageB">
+        {% if current_page != 1 %}
+        <button><a href="/{{ archive }}/{{ current_page-1 }}">< PREV</a></button>
+        {% endif %}
+        {% if current_page*5 < count %}
+        <button><a href="/{{ archive }}/{{ current_page+1 }}">NEXT ></a></button>
+        {% endif %}
+    </div>
+</div>
+<div class="foot">
+    <p>Powered by <a href="https://github.com/knowncold/Tipo">Tipo</a></p>
+</div>
+</body>
+</html>
