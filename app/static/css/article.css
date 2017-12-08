@@ -9,8 +9,13 @@
     margin-top: 20px;
 }
 .article h4, .arc_content h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
     color: #000;
     font-size: 20px;
+}
+.article pre code, .arc_content pre code {
+    font-family: Monaco, Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
 }
 .article pre, .arc_content pre {
     margin-bottom: 20px;
@@ -49,12 +54,11 @@
     border-left: 4px LightGrey solid;
     padding-left: 5px;
 }
-.article .pic_center, .arc_content .pic_center {
-    text-align: center;
-}
 .article img, .arc_content img {
+    display: block;
     max-width: 90%;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 20px;
     box-shadow: 0 3px 5px #aaa;
 }

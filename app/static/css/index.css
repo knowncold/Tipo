@@ -174,6 +174,7 @@ input::-webkit-input-placeholder {
     color: #000;
 }
 .recent p, .comment p, .archive p {
+    box-sizing: border-box;
     line-height: 36px;
     height: 36px;
     font-size: 20px;
