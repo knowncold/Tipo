@@ -62,3 +62,8 @@
     margin-top: 20px;
     box-shadow: 0 3px 5px #aaa;
 }
+
+pre span {
+	font-family: Monaco;
+}
+
