@@ -8,7 +8,12 @@
 .article h3, .arc_content h3 {
     margin-top: 20px;
 }
+.article h4, .arc_content h4 {
+    color: #000;
+    font-size: 20px;
+}
 .article pre, .arc_content pre {
+    margin-bottom: 20px;
     font-family: monaco;
     font-size: 90%;
     line-height: 130%;
@@ -27,7 +32,6 @@
     color: #4db6ac;
 }
 .article p, .arc_content p {
-    margin-top: 20px;
     border: none;
     border-radius: 0;
     color: #000000;

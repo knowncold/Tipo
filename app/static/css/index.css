@@ -60,6 +60,7 @@ body {
     margin-top: 28px;
 }
 input {
+    box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #fff;
     width: 300px;
@@ -175,7 +176,7 @@ input::-webkit-input-placeholder {
 .recent p, .comment p, .archive p {
     line-height: 36px;
     height: 36px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 100;
     border-bottom: 1px solid #eee;
 }

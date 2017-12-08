@@ -57,6 +57,7 @@ body {
     margin-top: 28px;
 }
 input {
+    box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #fff;
     width: 300px;
