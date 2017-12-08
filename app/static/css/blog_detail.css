@@ -81,7 +81,7 @@ input::-webkit-input-placeholder {
     font-size: 20px;
     font-weight: 200;
 }
-img {
+.nav_con img {
     height: 70px;
     float: right;
 }
