@@ -18,6 +18,14 @@ def paged(page=1):
     count = blog.count()
     return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='index', month=month_archive())
 
+@app.route('/search/<keyword>')
+@app.route('/search/<keyword>/<page>')
+def serach(keyword, page=1):
+    blog = Blog.objects(content__contains=keyword).order_by("-createTime")
+    paged = blog.paginate(page=int(page), per_page=5)
+    count = blog.count()
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='index', month=month_archive())
+
 @app.route('/archive')
 def archive():
     archive_list = {}
