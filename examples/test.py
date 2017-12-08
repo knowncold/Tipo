@@ -11,7 +11,7 @@ title, category, tags, createDay = mdFile.split('+')
 
 input_file = codecs.open(mdFile, mode="r", encoding="utf-8")
 text = input_file.read()
-content = markdown.markdown(text)
+content = markdown.markdown(text, extensions=['markdown.extensions.codehilite', 'markdown.extensions.fenced_code'])
 
 headers = {'Content-Type': 'application/json'}
 payload = {'title': title, 'category': category,  'content': content, 'tags': tags.split('-'), 'createDay': createDay.split('.')[0]}
