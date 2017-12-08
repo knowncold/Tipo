@@ -8,7 +8,7 @@
 .article h3, .arc_content h3 {
     margin-top: 20px;
 }
-.article pre. .arc_content pre {
+.article pre, .arc_content pre {
     font-size: 16px;
     box-shadow: none;
     border: 1px solid #b0b5a8;
@@ -24,7 +24,7 @@
     text-decoration: none;
     color: #4db6ac;
 }
-.article p .arc_content p {
+.article p, .arc_content p {
     border: none;
     border-radius: 0;
     color: #000000;
