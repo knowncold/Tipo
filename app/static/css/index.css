@@ -109,7 +109,7 @@ input::-webkit-input-placeholder {
 }
 .blog_left h1 {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 400;
 }
 .blog_left h1 a {
     position: relative;
@@ -121,7 +121,7 @@ input::-webkit-input-placeholder {
 }
 .blog_left h3 {
     margin-top: 36px;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 200;
 }
 .blog_left h4 {

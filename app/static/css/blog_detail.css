@@ -108,7 +108,11 @@ input::-webkit-input-placeholder {
     font-size: 28px;
     font-weight: bold;
 }
-
+.detail_l h3 {
+    margin-top: 36px;
+    font-size: 20px;
+    font-weight: 200;
+}
 .clear {
     clear: both;
 }

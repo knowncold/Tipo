@@ -67,103 +67,13 @@
                     <div style="white-space: nowrap;">
 						<h4>{{ blog.date() }} 发布在 <a href="/category/{{ blog.category }}" style="text-decoration: none;color: #444;">{{ blog.category }}</a></h4>
 						{% for tag in blog.tag %}
-							<p style="float: left"><a href="/tag/{{ tag }}" style="text-decoration: none;color: #4db6ac;">{{ tag }}</a></p>
+							<p style="float: left;margin-left: 20px;padding: 2px 6px;"><a href="/tag/{{ tag }}" style="text-decoration: none;color: #4db6ac;">{{ tag }}</a></p>
 						{% endfor %}
                     </div>
                     <div class="article">
-
-                        <h2>安装完整VIM</h2>
-                        <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">markdown</span>
-
-<span class="k">print</span> <span class="mi">123</span>
-</pre></div>
-
-
-                        <div class="codehilite"><pre><span></span>pkg install vim
-</pre></div>
-
-
-                        <p>其中同时安装了不少和桌面系统相关的文件，内容比较大。</p>
-                        <h2>下载unpv12e代码</h2>
-                        <h3>安装wget</h3>
-                        <div class="codehilite"><pre><span></span>pkg install wget
-</pre></div>
-
-
-                        <h3>下载源码</h3>
-                        <div class="codehilite"><pre><span></span>wget http://unpbook.com/unpv13e.tar.gz
-</pre></div>
-
-
-                        <h3>解压</h3>
-                        <div class="codehilite"><pre><span></span>tar -xzvf unpv13e.tar.gz
-</pre></div>
-
-
-                        <h2>安装Git</h2>
-                        <p>需要通过Git获取<code>vimrc</code>和相关的插件</p>
-                        <div class="codehilite"><pre><span></span>pkg install git
-</pre></div>
-
-
-                        <h3>下载vimrc</h3>
-                        <p>下载我的<a href="https://github.com/knowncold/vim"><code>vimrc</code></a>，并复制到用户目录</p>
-                        <div class="codehilite"><pre><span></span>git clone https://github.com/knowncold/vim.git
-cd vim
-cp .vimrc ~/.vimrc
-cp -r colors ~/.vim/colors
-</pre></div>
-
-
-                        <h2>安装Vundle</h2>
-                        <p>可以参考之前的文章<a href="http://blog.knowncold.me/wiki/2016/08/22/vundle-install-on-windows.html">Windows安装Vundle</a></p>
-                        <div class="codehilite"><pre><span></span>git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-</pre></div>
-
-
-                        <h2>vim插件</h2>
-                        <p>打开vim，使用<code>PluginInstall</code>命令</p>
-                        <h3>自动补全</h3>
-                        <p>自动补全通过<code>YouCompleteMe</code>插件来实现，相关的更详细的步骤可以看<a href="http://blog.knowncold.me/wiki/2016/09/24/youcompleteme-install.html">这个文章</a>或者<a href="http://valloric.github.io/YouCompleteMe/#freebsdopenbsd">官方文档</a>。</p>
-                        <div class="codehilite"><pre><span></span>pkg install llvm38 boost-all boost-python-libs clang38
-pkg install python
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer --system-libclang --system-boost
-</pre></div>
-
-
-                        <p>编译完成之后，需要一个配置文件才能完全使用YCM</p>
-                        <p>可以使用YCM自己的配置文件<code>ycmd/cpp/ycm/.ycm_extra_conf.py</code>，放在用户根目录，然后打开c或者C++时，按照提示载入配置文件，YCM就会开始提供语义级的自动补全而不是简单的<code>ctags</code>。</p>
-                        <h3>补全配置</h3>
-                        <p>为了更好的使用YCM，<code>.ycm_extra_conf.py</code>对于每个项目每个文件都应该单独配置，这个配置文件主要定义的是当前项目需要的头文件，定义正确的配置文件之后，YCM才能到相应路径的头文件去寻找定义来补全。</p>
-                        <p>可以手写<code>.ycm_extra_conf.py</code>，也可以使用工具自动配置，需要用到<code>YCM Generater</code>，按上面的步骤，在<code>PluginInstall</code>中，已经安装好了，使用时需要项目文件中有<code>Makefile</code>。</p>
-                        <div class="codehilite"><pre><span></span>./config_gen.py PROJECT_DIRECTORY
-</pre></div>
-
-
-                        <h2>安装xfce</h2>
-                        <div class="codehilite"><pre><span></span>pkg install xorg
-pkg install slim
-pkg install xfce
-</pre></div>
-
-
-                        <p>向<code>/etc/rc.conf</code>写入</p>
-                        <div class="codehilite"><pre><span></span>moused_enable="YES"
-dbus_enable="YES"
-hald_enable="YES"
-slim_enable="YES"
-</pre></div>
-
-
-                        <p>向<code>~/.xinitrc</code>写入</p>
-                        <div class="codehilite"><pre><span></span>exec xfce4-session
-</pre></div>
-
-
-                        <p><code>init 6</code>重启之后就能进入桌面了</p>
-                        <h2>常用VIM命令</h2>
-
+                        {% autoescape false %}
+                        {{ blog.content }}
+                        {% endautoescape %}
                     </div>
                     <div class="blog_foot">
 						<a href= {{ blog.url() }} >阅读更多</a>

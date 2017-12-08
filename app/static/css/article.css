@@ -9,6 +9,7 @@
     margin-top: 20px;
 }
 .article pre, .arc_content pre {
+    font-family: monaco;
     font-size: 90%;
     line-height: 130%;
     box-shadow: none;
