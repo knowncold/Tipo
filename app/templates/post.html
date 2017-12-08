@@ -61,7 +61,7 @@
         <div class="detail_l">
             <div class="detail_left">
 				<h1 style="font-weight: 400">{{ blog.title }}</h1>
-				<h5 style="color: #aaa;font-weight: 100">{{ blog.date() }} 发布在 <a href="/category/{{ blog.category }}" style="text-decoration: none;color: #aaa">{{ blog.category }}</a></h5>
+				<h5 style="color: #aaa;font-weight: 100;margin-top: 10px;">{{ blog.date() }} 发布在 <a href="/category/{{ blog.category }}" style="text-decoration: none;color: #aaa">{{ blog.category }}</a></h5>
                 <div class="arc_content">
 						{% autoescape false %}
 						{{ blog.content }}

@@ -9,7 +9,8 @@
     margin-top: 20px;
 }
 .article pre, .arc_content pre {
-    font-size: 16px;
+    font-size: 90%;
+    line-height: 130%;
     box-shadow: none;
     border: 1px solid #b0b5a8;
     background-color: #EFF2F2;
@@ -25,6 +26,7 @@
     color: #4db6ac;
 }
 .article p, .arc_content p {
+    margin-top: 20px;
     border: none;
     border-radius: 0;
     color: #000000;
