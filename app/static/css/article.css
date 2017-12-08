@@ -20,6 +20,7 @@
 .article pre, .arc_content pre {
     margin-bottom: 20px;
     font-family: monaco;
+    overflow-x: auto;
     font-size: 90%;
     box-shadow: none;
     border: 1px solid #b0b5a8;
