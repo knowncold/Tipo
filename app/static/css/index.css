@@ -131,7 +131,6 @@ input::-webkit-input-placeholder {
     font-weight: 100;
     color: #444;
     font-style: italic;
-    float: left;
 }
 .blog_left p {
     font-size: 14px;

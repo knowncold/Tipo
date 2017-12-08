@@ -65,7 +65,7 @@
 				<div class="blog_left">
 					<h1><a href= {{ blog.url() }} > {{ blog.title }} </a></h1>
                     <div style="white-space: nowrap;">
-						<h4>{{ blog.date() }} 发布在 <a href="/category/{{ blog.category }}" style="text-decoration: none;color: #444;">{{ blog.category }}</a></h4>
+						<h4 style="float: left">{{ blog.date() }} 发布在 <a href="/category/{{ blog.category }}" style="text-decoration: none;color: #444;">{{ blog.category }}</a></h4>
 						{% for tag in blog.tag %}
 							<p style="float: left;margin-left: 20px;padding: 2px 6px;"><a href="/tag/{{ tag }}" style="text-decoration: none;color: #4db6ac;">{{ tag }}</a></p>
 						{% endfor %}
