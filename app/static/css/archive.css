@@ -142,6 +142,11 @@ img {
     text-decoration: none;
     color: inherit;
 }
+.search_button {
+    border: none;
+    background-color: #009789;
+    float: right;
+}
 .recent p, .comment p, .archives p {
     box-sizing: border-box;
     line-height: 36px;

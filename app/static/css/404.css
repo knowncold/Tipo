@@ -150,6 +150,11 @@ input::-webkit-input-placeholder {
     text-decoration: none;
     color: #000;
 }
+.search_button {
+    border: none;
+    background-color: #009789;
+    float: right;
+}
 .recent p, .comment p, .archive p {
     box-sizing: border-box;
     line-height: 36px;

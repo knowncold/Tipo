@@ -104,6 +104,11 @@ input::-webkit-input-placeholder {
     background-color: #fff;
     margin-bottom: 50px;
 }
+.search_button {
+    border: none;
+    background-color: #009789;
+    float: right;
+}
 .blog_left span {
     color: #000;
     line-height: 30px;

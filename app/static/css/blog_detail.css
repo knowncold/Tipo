@@ -133,6 +133,11 @@ input::-webkit-input-placeholder {
 .tag {
     margin-top: 40px;
 }
+.search_button {
+    border: none;
+    background-color: #009789;
+    float: right;
+}
 .tag span {
     height: 30px;
     line-height: 30px;
