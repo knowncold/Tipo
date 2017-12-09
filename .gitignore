@@ -1,6 +1,7 @@
 /venv
 /**/*.pyc
 /**/*.swp
+/**/*.md
 .DS_Store
 */.DS_Store
 .idea/
