@@ -32,7 +32,8 @@ def archive():
     archive_list = {}
     month = Blog.objects().order_by("month").distinct(field="month")[::-1]
     for m in month:
-        archive_list[datetime.datetime.strftime(datetime.datetime.strptime(m, "%Y-%m"), "%B")]=(Blog.objects(month=m).order_by("-createTime"))
+        archive_list[datetime.datetime.strftime(datetime.datetime.strptime(m, "%Y-%m"), "%Y%m%B")]=(Blog.objects(month=m).order_by("-createTime"))
+    archive_list = sorted(archive_list.items(), reverse=True)
     return render_template('archive.html', latest_blog=latest_blog(), tags=tag_cloud(), month=month_archive(), blog_list=archive_list)
 
 @app.route('/about')

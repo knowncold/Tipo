@@ -68,9 +68,9 @@
         <div class="archive_l">
 			{% for month in blog_list %}
             <div class="archive_left">
-				<h1>{{ month }}</h1>
+				<h1>{{ month[0][6:] }}</h1>
 					<ul>
-					{% for blog in blog_list[month] %}
+					{% for blog in month[1] %}
 					<li><a href="{{ blog.url() }}">{{ blog.title }}</a></li>
 					{% endfor %}
 					</ul>
