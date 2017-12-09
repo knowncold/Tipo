@@ -110,10 +110,10 @@
                     <div style="margin-top: 26px">
 						{% for i in month %}
                         <div style="border-bottom: 1px solid #eee;padding-left: 10px;height: 36px;line-height: 36px">
-							<a href="/month/{{ i[:4] }}/{{ i[5:7] }}" style="text-decoration: none">
-							<span class="year" style="color: #000">{{ i[7:11] }}</span>
-							<span class="month">{{ i[11:] }}</span>
-							<span class="number">({{ month[i] }})</span>
+							<a href="/month/{{ i[0][:4] }}/{{ i[0][5:7] }}" style="text-decoration: none">
+							<span class="year" style="color: #000">{{ i[0][7:11] }}</span>
+							<span class="month">{{ i[0][11:] }}</span>
+							<span class="number">({{ i[1] }})</span>
                             </a>
                         </div>
 						{% endfor %}

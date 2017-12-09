@@ -80,6 +80,7 @@ def month_archive():
     num_count = {}
     for mon in Blog.objects().distinct(field="month"):
         num_count[mon+datetime.datetime.strftime(datetime.datetime.strptime(mon, "%Y-%m"), "%Y%b")] = Blog.objects(month=mon).count()
+    num_count = sorted(num_count.items(), reverse=True)
     return num_count
 
 @app.route('/category/<category>')
