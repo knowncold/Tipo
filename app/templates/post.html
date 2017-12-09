@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="/static/css/tags.css">
     <link rel="stylesheet" href="/static/css/comments.css">
     <link rel="stylesheet" href="/static/css/article.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+		  tex2jax: {inlineMath: [['$','$'], ['\[','\]']]}
+		  });
+	</script>
     <script type="text/javascript" src="/static/js/tags.js"></script>
     <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
@@ -48,8 +54,10 @@
                 <div style="float: left;width: 100%">
                     <span class="subname">十年生死两茫茫，不思量自难忘</span>
                     <div style="">
-                        <img src="/static/assets/search.png" />
-                        <input type="text" placeholder="搜索" />
+						<form action="/search">
+							<input type="submit" hidden><img src="/static/assets/search.png" />
+							<input type="text" placeholder="搜索" name="value"/>
+						</form>
                     </div>
 
                 </div>

@@ -213,6 +213,12 @@ input::-webkit-input-placeholder {
     text-decoration: none;
     font-style: italic;
 }
+
+.nav_con img {
+	height: 70px;
+	float: right;
+}
+
 @media screen and (max-width: 1299px) {
     .detail_l{
         width: 100%;

@@ -18,13 +18,14 @@ def paged(page=1):
     count = blog.count()
     return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='index', month=month_archive())
 
-@app.route('/search/<keyword>')
-@app.route('/search/<keyword>/<page>')
-def serach(keyword, page=1):
+@app.route('/search')
+@app.route('/search/<page>')
+def serach(page=1):
+    keyword = request.args.get("value")
     blog = Blog.objects(content__contains=keyword).order_by("-createTime")
     paged = blog.paginate(page=int(page), per_page=5)
     count = blog.count()
-    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='index', month=month_archive())
+    return render_template('index.html', blog_list=paged.items, latest_blog = latest_blog(), tags=tag_cloud(), current_page=int(page), count=count, archive='search', month=month_archive())
 
 @app.route('/archive')
 def archive():
@@ -53,6 +54,8 @@ def new_blog():
 
     if get_json.has_key('createDay'):
         createDay = get_json['createDay']
+        createTime = createDay
+        month = createDay[:7]
     else:
         createDay = None
     if get_json.has_key('tags'):
@@ -61,7 +64,7 @@ def new_blog():
         tags = None
     category = get_json['category']
 
-    blog = Blog(title=title, content=content, tag=tags, createDay=createDay, category=category)
+    blog = Blog(title=title, createTime=createTime, content=content, tag=tags, createDay=createDay, category=category, month=month)
     blog.save()
     return str(ErrorMessage(True, ''))
 

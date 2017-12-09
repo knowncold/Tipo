@@ -6,8 +6,8 @@ import json
 class Blog(db.Document):
     title = db.StringField()
     content = db.StringField()
-    createTime = db.DateTimeField(default=datetime.datetime.now())
     createDay = db.DateTimeField(default=datetime.date.today())
+    createTime = db.DateTimeField(default=datetime.datetime.now())
     category = db.StringField(default='uncategoried')
     tag = db.ListField(db.StringField())
     pageview = db.IntField(default=0)
